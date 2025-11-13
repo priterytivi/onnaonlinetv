@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html lang="vi">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <title>ONNA Online TV - Xem Tivi Trực Tuyến</title>
+  <meta name="description" content="Nền Tảng Truyền Hình Số Thuộc Bởi ONNA Network!">
+
+<!-- Open Graph (for Facebook, Zalo, etc.) -->
+
+<meta property="og:title" content="ONNA Online TV - Xem Tivi Trực Tuyến">
+<meta property="og:description" content="Nền Tảng Truyền Hình Số Thuộc Bởi ONNA Network!">
+<meta property="og:image" content="/onnaonlinethumball.jpg">
+<meta property="og:url" content="http://onnaonlinetv.xyz">
+<meta property="og:type" content="website">
+  <script>
+
+    // Khi tải trang sẽ kiểm tra thiết bị
+
+    window.onload = function() {
+
+      if (/Mobi|Android|iPhone|iPod/i.test(navigator.userAgent)) {
+
+        // Nếu là thiết bị di động
+
+        window.location.href = "/mobile.html";
+
+      } else {
+
+        // Nếu là máy tính
+
+        window.location.href = "/desktop.html";
+
+      }
+
+    }
+
+  </script>
+
+</head>
+
+</body>
+
+</html>
