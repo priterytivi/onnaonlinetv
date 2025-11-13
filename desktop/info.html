@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+
+<html lang="vi">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=1024">
+
+  <title>Giới Thiệu - ONNA Online TV</title>
+
+  <link href="https://vjs.zencdn.net/7.21.1/video-js.css" rel="stylesheet" />
+
+  <style>
+
+    body {
+
+      margin: 0;
+
+      font-family: Arial, sans-serif;
+
+      background: #fff;
+
+      display: flex;
+
+      flex-direction: column;
+
+      min-height: 100vh;
+
+    }
+
+    /* Thanh trên */
+
+    .topbar {
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      background: #111;
+
+      padding: 10px 20px;
+
+    }
+
+    .topbar-left {
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 20px;
+
+    }
+
+    .topbar-left img {
+
+      height: 40px;
+
+    }
+
+    .topbar-left a {
+
+      color: #fff;
+
+      font-size: 18px;
+
+      text-decoration: none;
+
+      font-weight: bold;
+
+    }
+
+    .search-box {
+
+      position: relative;
+
+    }
+
+    .search-box input {
+
+      width: 250px;
+
+      padding: 8px 12px;
+
+      font-size: 16px;
+
+      border-radius: 20px;
+
+      border: 1px solid #ccc;
+
+      background: #fff;
+
+      color: #000;
+
+    }
+
+    .suggestions {
+
+      position: absolute;
+
+      top: 38px;
+
+      left: 0;
+
+      width: 100%;
+
+      background: #fff;
+
+      border: 1px solid #ccc;
+
+      border-radius: 5px;
+
+      max-height: 200px;
+
+      overflow-y: auto;
+
+      display: none;
+
+      z-index: 1000;
+
+    }
+
+    .suggestion-item {
+
+      padding: 8px 12px;
+
+      cursor: pointer;
+
+    }
+
+    .suggestion-item:hover {
+
+      background: #f0f0f0;
+
+    }
+
+    /* Player */
+
+    .player-container {
+
+      width: 100%;
+
+      max-width: 1000px;
+
+      margin: 10px auto 30px;
+
+      aspect-ratio: 16/9;
+
+      background: #000;
+
+      position: relative;
+
+    }
+
+    .video-js {
+
+      width: 100%;
+
+      height: 100%;
+
+    }
+
+    /* Fix nút play chính giữa */
+
+    .vjs-big-play-centered .vjs-big-play-button {
+
+      top: 50% !important;
+
+      left: 50% !important;
+
+      transform: translate(-50%, -50%) !important;
+
+      margin: 0 !important;
+
+      position: absolute !important;
+
+    }
+
+    /* Section */
+
+    .section {
+
+      max-width: 1000px;
+
+      margin: 20px auto;
+
+    }
+
+    .section h2 {
+
+      margin-bottom: 15px;
+
+    }
+
+    .thumb-grid {
+
+      display: grid;
+
+      grid-template-columns: repeat(4, 1fr); /* 4 ô 1 hàng */
+
+      gap: 15px;
+
+    }
+
+    .thumb {
+
+      background: #f0f0f0;
+
+      border-radius: 8px;
+
+      overflow: hidden;
+
+      cursor: pointer;
+
+      aspect-ratio: 16/9;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+    }
+
+    .thumb img {
+
+      width: 100%;
+
+      height: 100%;
+
+      object-fit: cover;
+
+    }
+
+    .thumb:hover {
+
+      border: 2px solid gray;
+
+    }
+
+    /* Footer */
+
+    footer {
+
+      text-align: center;
+
+      padding: 15px;
+
+      border-top: 1px solid #ccc;
+
+      background: #fff;
+
+      margin-top: 40px; /* Không còn bị dính quá xa */
+
+    }
+
+    footer p {
+
+      margin: 5px 0;
+
+      font-size: 14px;
+
+      color: #333;
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <!-- Thanh trên -->
+
+  <div class="topbar">
+
+    <div class="topbar-left">
+
+      <img src="/onnaonlinetv.png" alt="ONNA Online">
+
+      <a href="/desktop.html">Truyền Hình</a>
+
+      <a href="/desktop/info.html">Giới Thiệu</a>
+
+    </div>
+
+    <div class="search-box">
+
+      <input type="text" id="search" placeholder="Tìm kiếm kênh...">
+
+      <div class="suggestions" id="suggestions"></div>
+
+    </div>
+
+  </div>
+
+  <style>
+
+    .container {
+
+      width: 900px;
+
+      margin: 0 auto;
+
+      text-align: left;
+
+    }
+
+    .title {
+
+      font-size: 48px;
+
+      font-weight: bold;
+
+      color: #222;
+
+      margin-bottom: 20px;
+
+      text-decoration: underline; /* gạch chân tiêu đề */
+
+    }
+
+    .description {
+
+      font-size: 16px;
+
+      line-height: 1.6;
+
+      color: #444;
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <div class="container">
+
+  	<div class="title">        </div>
+
+    <div class="title">Giới Thiệu</div>
+
+    <div class="description">
+
+      ONNA Online TV là một nền tảng xem Truyền Hình Trực Tuyến được thành lập bởi ONNA Network vào năm 2025, chúng tôi lập ra nền tảng này với mục đích phi lợi nhuận và phục vụ cộng đồng, chúng tôi hoàn toàn không nhận quảng cáo hay thu phí người xem, tất cả các kênh truyền hình trên nền tảng này đều được chúng tôi tổng hợp lại từ các nguồn tín hiệu được cung cấp miễn phí trên Internet và toàn bộ các luồng tín hiệu kênh truyền hình này đều từ một bên thứ ba và <b>HOÀN TOÀN KHÔNG NẰM TRONG HỆ THỐNG CỦA CHÚNG TÔI</b>, chúng tôi cũng không chịu trách nhiệm về bản quyền nội dung và cũng không chịu trách nhiệm về nội dung không phù hợp, chúng tôi sẽ sẵn sàng hợp tác gỡ bỏ nội dung theo yêu cầu từ các nhà mạng và đơn vị phát hành nếu phát hiện có nội dung có bản quyền hoặc không phù hợp, chúng tôi khuyến khích người xem cân nhắc nội dung mà mình muốn xem và lựa chọn các trang web có bản quyền để có một trải nghiệm tốt nhất!
+
+    </div>
+
+  </div>
+
+</body>
+
+</html>
+
+  <!-- Footer -->
+
+  <footer>
+
+    <p>© Bản Quyền Thuộc Bởi ONNA Network (2025)</p>
+
+    <p>Liên hệ Gmail: nnt1709group@gmail.com</p>
+
+  </footer>
+
+  <script src="https://vjs.zencdn.net/7.21.1/video.min.js"></script>
+
+  <script>
+
+    const player = videojs('player');
+
+    const tvContainer = document.getElementById("tv-channels");
+
+    const radioContainer = document.getElementById("radio-channels");
+
+    const searchInput = document.getElementById("search");
+
+    const suggestionsBox = document.getElementById("suggestions");
+
+    let allChannels = [];
+
+    async function loadM3U() {
+
+      const res = await fetch("https://raw.githubusercontent.com/priterytivi/onnanetwork/refs/heads/main/website/api.m3u");
+
+      const text = await res.text();
+
+      const lines = text.split("\n");
+
+      let currentInfo = null;
+
+      const tvChannels = [];
+
+      const radioChannels = [];
+
+      lines.forEach(line => {
+
+        if (line.startsWith("#EXTINF:")) {
+
+          const group = line.match(/group-title="([^"]+)"/);
+
+          const logo = line.match(/tvg-logo="([^"]+)"/);
+
+          const name = line.split(",").pop().trim();
+
+          currentInfo = {
+
+            name,
+
+            group: group ? group[1] : "Khác",
+
+            logo: logo ? logo[1] : ""
+
+          };
+
+        } else if (line.startsWith("http") && currentInfo) {
+
+          currentInfo.url = line.trim();
+
+          if (currentInfo.group.includes("Truyền Hình")) {
+
+            tvChannels.push({...currentInfo});
+
+          } else if (currentInfo.group.includes("Phát Thanh")) {
+
+            radioChannels.push({...currentInfo});
+
+          }
+
+          allChannels.push({...currentInfo});
+
+          currentInfo = null;
+
+        }
+
+      });
+
+      // Auto play kênh đầu tiên
+
+      if (tvChannels.length > 0) {
+
+        playChannel(tvChannels[0]);
+
+      } else if (radioChannels.length > 0) {
+
+        playChannel(radioChannels[0]);
+
+      }
+
+      // Render TV
+
+      tvChannels.forEach(ch => {
+
+        const div = document.createElement("div");
+
+        div.className = "thumb";
+
+        div.innerHTML = `<img src="${ch.logo}" alt="${ch.name}">`;
+
+        div.addEventListener("click", () => playChannel(ch));
+
+        tvContainer.appendChild(div);
+
+      });
+
+      // Render Radio
+
+      radioChannels.forEach(ch => {
+
+        const div = document.createElement("div");
+
+        div.className = "thumb";
+
+        div.innerHTML = `<img src="${ch.logo}" alt="${ch.name}">`;
+
+        div.addEventListener("click", () => playChannel(ch));
+
+        radioContainer.appendChild(div);
+
+      });
+
+    }
+
+    function playChannel(channel) {
+
+      player.src({ src: channel.url, type: "application/x-mpegURL" });
+
+      player.play();
+
+    }
+
+    // Search gợi ý
+
+    searchInput.addEventListener("input", () => {
+
+      const query = searchInput.value.toLowerCase();
+
+      suggestionsBox.innerHTML = "";
+
+      if (!query) {
+
+        suggestionsBox.style.display = "none";
+
+        return;
+
+      }
+
+      const filtered = allChannels.filter(ch => ch.name.toLowerCase().includes(query));
+
+      filtered.forEach(ch => {
+
+        const div = document.createElement("div");
+
+        div.className = "suggestion-item";
+
+        div.textContent = ch.name;
+
+        div.addEventListener("click", () => {
+
+          playChannel(ch);
+
+          suggestionsBox.style.display = "none";
+
+          searchInput.value = "";
+
+        });
+
+        suggestionsBox.appendChild(div);
+
+      });
+
+      suggestionsBox.style.display = filtered.length > 0 ? "block" : "none";
+
+    });
+
+    loadM3U();
+
+  </script>
+
+</body>
+
+</html>
