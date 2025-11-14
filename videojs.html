@@ -2,7 +2,7 @@
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
-<title>VideoJS Player</title>
+<title>VideoJS Player 16:9 Autoplay</title>
 
 <!-- Video.js CSS -->
 <link href="https://vjs.zencdn.net/8.10.0/video-js.css" rel="stylesheet" />
@@ -11,18 +11,31 @@
     body {
         background: #000;
         margin: 0;
-        padding: 20px;
+        padding: 0;
     }
-    .video-container {
-        max-width: 900px;
-        margin: auto;
+
+    /* Khung giữ tỷ lệ 16:9 */
+    .video-wrapper {
+        position: relative;
+        width: 100%;
+        padding-top: 56.25%; /* 16:9 */
+        background: #000;
+    }
+
+    /* Player full khung */
+    .video-wrapper .video-js {
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
     }
 </style>
 </head>
 <body>
 
-<div class="video-container">
-    <video id="my-video" class="video-js vjs-default-skin" controls preload="auto" width="100%" height="auto">
+<div class="video-wrapper">
+    <video id="my-video" class="video-js vjs-default-skin"
+           controls preload="auto"
+           autoplay muted playsinline>
         <source id="video-source" src="" type="video/mp4">
     </video>
 </div>
@@ -31,19 +44,23 @@
 <script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
 
 <script>
-// Lấy URL video từ query param ?url=
+// Lấy URL video từ query ?url=
 const params = new URLSearchParams(window.location.search);
 const videoURL = params.get("url");
 
 // Nếu có URL thì gán vào player
 if (videoURL) {
-    document.getElementById("video-source").src = videoURL;
+    const player = videojs('my-video');
 
-    // Khởi động Video.js
-    var player = videojs('my-video');
-    player.src({ 
+    player.src({
         src: videoURL,
-        type: "video/mp4"
+        type: videoURL.endsWith(".m3u8") ? "application/x-mpegURL" : "video/mp4"
+    });
+
+    // Tự play khi load xong
+    player.ready(function () {
+        player.muted(true);   // Chrome yêu cầu mute để autoplay
+        player.play();
     });
 }
 </script>
