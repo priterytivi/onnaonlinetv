@@ -2,45 +2,48 @@
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
-<title>VideoJS Fullscreen Player</title>
+<title>VideoJS Test</title>
 
 <!-- Video.js CSS -->
 <link href="https://vjs.zencdn.net/8.10.0/video-js.css" rel="stylesheet" />
 
 <style>
-    html, body {
+    body {
         margin: 0;
         padding: 0;
-        height: 100%;
         background: #000;
+        font-family: system-ui, sans-serif;
     }
 
-    /* Wrapper full màn hình */
+    /* Khung 16:9 phản hồi */
     .video-wrapper {
-        position: fixed;
-        inset: 0;
         width: 100%;
-        height: 100%;
+        max-width: 900px;
+        margin: 0 auto;
+        position: relative;
+        padding-top: 56.25%; /* 16:9 */
         background: #000;
-        overflow: hidden;
     }
 
-    /* Player chiếm full wrapper */
+    /* Player chiếm khung */
     .video-wrapper .video-js {
+        position: absolute;
+        top: 0; left: 0;
         width: 100%;
         height: 100%;
     }
 
-    /* Video bên trong lấp đầy */
     .video-wrapper .vjs-tech {
-        object-fit: cover;  /* nếu không muốn crop, đổi thành contain */
+        object-fit: cover;
     }
 
     /* Overlay báo lỗi */
     .error-overlay {
-        position: fixed;
-        inset: 0;
-        display: none;          /* ẩn mặc định */
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%;
+        height: 100%;
+        display: none;
         align-items: center;
         justify-content: center;
         background: rgba(0, 0, 0, 0.7);
@@ -57,7 +60,6 @@
         padding: 16px 20px;
         border-radius: 8px;
         background: rgba(40, 0, 0, 0.9);
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
 
     .error-box h2 {
@@ -69,41 +71,41 @@
     .error-box p {
         margin: 4px 0;
         font-size: 14px;
-        line-height: 1.4;
     }
 </style>
 </head>
 <body>
 
 <div class="video-wrapper">
+
     <video id="my-video" class="video-js vjs-default-skin"
            controls preload="auto"
            autoplay muted playsinline>
         <source id="video-source" src="" type="video/mp4">
     </video>
-</div>
 
-<!-- Overlay lỗi custom -->
-<div id="error-overlay" class="error-overlay">
-    <div class="error-box">
-        <h2>Không thể phát video</h2>
-        <p id="error-main">Video gặp lỗi trong quá trình tải hoặc định dạng không được hỗ trợ.</p>
-        <p id="error-detail"></p>
-        <p style="font-size:12px;opacity:0.7;">
-            Vui lòng kiểm tra lại đường dẫn <code>?url=</code> hoặc thử tải lại trang.
-        </p>
+    <!-- Overlay lỗi -->
+    <div id="error-overlay" class="error-overlay">
+        <div class="error-box">
+            <h2>Không thể phát video</h2>
+            <p id="error-detail">Video gặp lỗi trong quá trình tải hoặc định dạng không hỗ trợ.</p>
+            <p style="font-size:12px;opacity:0.7;">
+                Kiểm tra lại tham số <code>?url=</code>.
+            </p>
+        </div>
     </div>
+
 </div>
 
 <!-- Video.js JS -->
 <script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
 
 <script>
-// Lấy URL video từ query ?url=
+// Lấy URL video từ query
 const params = new URLSearchParams(window.location.search);
 const videoURL = params.get("url");
 
-// Khởi tạo player luôn (kể cả khi chưa có URL) để tránh lỗi "chớp" rồi mất
+// Khởi tạo player
 const player = videojs('my-video', {
     controls: true,
     autoplay: true,
@@ -111,7 +113,7 @@ const player = videojs('my-video', {
     preload: 'auto'
 });
 
-// Nếu có URL thì gán vào player
+// Gán nguồn nếu có url
 if (videoURL) {
     player.src({
         src: videoURL,
@@ -120,39 +122,33 @@ if (videoURL) {
             : "video/mp4"
     });
 } else {
-    // Không có url -> hiện lỗi luôn
-    showErrorOverlay("Không tìm thấy tham số ?url trên URL.");
+    showError("Không tìm thấy tham số ?url.");
 }
 
-// Khi player sẵn sàng, cố gắng autoplay (sẽ fail im lặng nếu browser chặn)
+// Tự động play khi ready
 player.ready(function () {
     player.muted(true);
-    player.play().catch(function() {
-        // Trình duyệt chặn autoplay, không sao, chỉ cần không crash
-    });
+    player.play().catch(() => {});
 });
 
-// Lắng nghe lỗi từ Video.js
+// Lắng nghe lỗi
 player.on('error', function () {
     const err = player.error();
-    let detail = "";
+    let msg = "";
 
     if (err) {
-        // err.code & err.message tuỳ trình duyệt
-        detail = "Mã lỗi: " + err.code + (err.message ? " – " + err.message : "");
+        msg = "Mã lỗi: " + err.code + (err.message ? " – " + err.message : "");
     }
 
-    showErrorOverlay(detail || "Có lỗi không xác định xảy ra.");
+    showError(msg);
 });
 
-// Hàm hiển thị overlay lỗi
-function showErrorOverlay(message) {
+// Hàm hiển thị lỗi
+function showError(message) {
     const overlay = document.getElementById('error-overlay');
-    const detailEl = document.getElementById('error-detail');
+    const detail = document.getElementById('error-detail');
 
-    if (detailEl && message) {
-        detailEl.textContent = message;
-    }
+    if (detail && message) detail.textContent = message;
 
     overlay.style.display = 'flex';
 }
