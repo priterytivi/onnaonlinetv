@@ -2,31 +2,38 @@
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
-<title>VideoJS Player 16:9 Autoplay</title>
+<title>VideoJS Test</title>
 
 <!-- Video.js CSS -->
 <link href="https://vjs.zencdn.net/8.10.0/video-js.css" rel="stylesheet" />
 
 <style>
-    body {
-        background: #000;
+    html, body {
         margin: 0;
         padding: 0;
-    }
-
-    /* Khung giữ tỷ lệ 16:9 */
-    .video-wrapper {
-        position: relative;
-        width: 100%;
-        padding-top: 56.25%; /* 16:9 */
+        height: 100%;
         background: #000;
     }
 
-    /* Player full khung */
+    /* Wrapper full màn hình */
+    .video-wrapper {
+        position: fixed;
+        inset: 0;           /* top:0; right:0; bottom:0; left:0 */
+        width: 100%;
+        height: 100%;
+        background: #000;
+        overflow: hidden;
+    }
+
+    /* Player chiếm full wrapper */
     .video-wrapper .video-js {
-        position: absolute;
-        top: 0; left: 0;
-        width: 100%; height: 100%;
+        width: 100%;
+        height: 100%;
+    }
+
+    /* Video bên trong lấp đầy (có thể crop) */
+    .video-wrapper .vjs-tech {
+        object-fit: cover;  /* nếu muốn không crop thì đổi thành `contain` */
     }
 </style>
 </head>
@@ -57,9 +64,8 @@ if (videoURL) {
         type: videoURL.endsWith(".m3u8") ? "application/x-mpegURL" : "video/mp4"
     });
 
-    // Tự play khi load xong
     player.ready(function () {
-        player.muted(true);   // Chrome yêu cầu mute để autoplay
+        player.muted(true);
         player.play();
     });
 }
