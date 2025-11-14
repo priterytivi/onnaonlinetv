@@ -2,7 +2,7 @@
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
-<title>VideoJS Test</title>
+<title>VideoJS Fullscreen Player</title>
 
 <!-- Video.js CSS -->
 <link href="https://vjs.zencdn.net/8.10.0/video-js.css" rel="stylesheet" />
@@ -18,7 +18,7 @@
     /* Wrapper full màn hình */
     .video-wrapper {
         position: fixed;
-        inset: 0;           /* top:0; right:0; bottom:0; left:0 */
+        inset: 0;
         width: 100%;
         height: 100%;
         background: #000;
@@ -31,9 +31,45 @@
         height: 100%;
     }
 
-    /* Video bên trong lấp đầy (có thể crop) */
+    /* Video bên trong lấp đầy */
     .video-wrapper .vjs-tech {
-        object-fit: cover;  /* nếu muốn không crop thì đổi thành `contain` */
+        object-fit: cover;  /* nếu không muốn crop, đổi thành contain */
+    }
+
+    /* Overlay báo lỗi */
+    .error-overlay {
+        position: fixed;
+        inset: 0;
+        display: none;          /* ẩn mặc định */
+        align-items: center;
+        justify-content: center;
+        background: rgba(0, 0, 0, 0.7);
+        z-index: 9999;
+        color: #fff;
+        text-align: center;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    .error-box {
+        max-width: 420px;
+        border: 1px solid #ff6666;
+        padding: 16px 20px;
+        border-radius: 8px;
+        background: rgba(40, 0, 0, 0.9);
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    .error-box h2 {
+        margin: 0 0 8px;
+        font-size: 18px;
+        color: #ff8080;
+    }
+
+    .error-box p {
+        margin: 4px 0;
+        font-size: 14px;
+        line-height: 1.4;
     }
 </style>
 </head>
@@ -47,6 +83,18 @@
     </video>
 </div>
 
+<!-- Overlay lỗi custom -->
+<div id="error-overlay" class="error-overlay">
+    <div class="error-box">
+        <h2>Không thể phát video</h2>
+        <p id="error-main">Video gặp lỗi trong quá trình tải hoặc định dạng không được hỗ trợ.</p>
+        <p id="error-detail"></p>
+        <p style="font-size:12px;opacity:0.7;">
+            Vui lòng kiểm tra lại đường dẫn <code>?url=</code> hoặc thử tải lại trang.
+        </p>
+    </div>
+</div>
+
 <!-- Video.js JS -->
 <script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
 
@@ -55,19 +103,58 @@
 const params = new URLSearchParams(window.location.search);
 const videoURL = params.get("url");
 
+// Khởi tạo player luôn (kể cả khi chưa có URL) để tránh lỗi "chớp" rồi mất
+const player = videojs('my-video', {
+    controls: true,
+    autoplay: true,
+    muted: true,
+    preload: 'auto'
+});
+
 // Nếu có URL thì gán vào player
 if (videoURL) {
-    const player = videojs('my-video');
-
     player.src({
         src: videoURL,
-        type: videoURL.endsWith(".m3u8") ? "application/x-mpegURL" : "video/mp4"
+        type: videoURL.endsWith(".m3u8")
+            ? "application/x-mpegURL"
+            : "video/mp4"
     });
+} else {
+    // Không có url -> hiện lỗi luôn
+    showErrorOverlay("Không tìm thấy tham số ?url trên URL.");
+}
 
-    player.ready(function () {
-        player.muted(true);
-        player.play();
+// Khi player sẵn sàng, cố gắng autoplay (sẽ fail im lặng nếu browser chặn)
+player.ready(function () {
+    player.muted(true);
+    player.play().catch(function() {
+        // Trình duyệt chặn autoplay, không sao, chỉ cần không crash
     });
+});
+
+// Lắng nghe lỗi từ Video.js
+player.on('error', function () {
+    const err = player.error();
+    let detail = "";
+
+    if (err) {
+        // err.code & err.message tuỳ trình duyệt
+        detail = "Mã lỗi: " + err.code + (err.message ? " – " + err.message : "");
+    }
+
+    showErrorOverlay(detail || "Có lỗi không xác định xảy ra.");
+});
+
+// Hàm hiển thị overlay lỗi
+function showErrorOverlay(message) {
+    const overlay = document.getElementById('error-overlay');
+    const detailEl = document.getElementById('error-detail');
+
+    if (detailEl && message) {
+        detailEl.textContent = message;
+    }
+
+    overlay.style.display = 'flex';
 }
 </script>
 
