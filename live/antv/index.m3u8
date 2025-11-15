@@ -1,4 +1,4 @@
-ffmpeg -i "https://wowza.danet.vn/live/antv/index.m3u8" \
+ffmpeg -i "https://ott3.nethubtv.vn/live/bentretv/playlist.m3u8" \
 -i "https://onnaonlinetv.xyz/onnaonlinetv.png" \
 -filter_complex "overlay=W-w-20:H-h-20" \
 -c:v libx264 -preset veryfast -c:a copy \
