@@ -25,8 +25,10 @@ https://liveh12.seenow.vn/hls/VTV3_HD/index.m3u8
 https://liveh12.seenow.vn/hls/VTV4_HD/index.m3u8
 #EXTINF:-1 tvg-id="vtv5hd" group-title="Truyền Hình" tvg-logo="https://i.ibb.co/dJbBrw6K/VTV5-1.png", VTV5
 https://liveh12.seenow.vn/hls/VTV5_HD/index.m3u8
-#EXTINF:-1 tvg-id="vtvcanthohd" group-title="Truyền Hình" tvg-logo="https://i.ibb.co/dJbBrw6K/VTV5-1.png", VTV Cần Thơ
+#EXTINF:-1 tvg-id="vtvcantho" group-title="Truyền Hình" tvg-logo="https://i.ibb.co/dJbBrw6K/VTV5-1.png", VTV Cần Thơ
 https://liveh12.seenow.vn/hls/VTVCANTHO_HD/index.m3u8
+#EXTINF:-1 tvg-id="vietnamtoday" group-title="Truyền Hình" tvg-logo="https://i.ibb.co/nNRSbC7r/IMG-20251117-204412.jpg", Vietnam Today
+https://liveh12.seenow.vn/hls/VIETNAMTODAY/index.m3u8
 #EXTINF:-1 tvg-id="antvhd" group-title="Truyền Hình" tvg-logo="https://i.ibb.co/W9mYZGj/90.jpg", ANTV
 https://wowza.danet.vn/live/antv/chunklist_w1998701349.m3u8
 #EXTINF:-1 tvg-id="qpvnhd" group-title="Truyền Hình" tvg-logo="https://i.ibb.co/svWGwbCf/94.jpg", QPVN
