@@ -46,9 +46,9 @@ https://liveh34.vtvprime.vn/hls/VUNGTAUTV/03.m3u8
 #EXTINF:-1 tvg-id="vinhlong1hd" group-title="Truyền Hình" tvg-logo="https://i.ibb.co/xq3cTjNS/THVL1-2025-1.png", THVL1
 https://live.fptplay53.net/epzch2/vinhlong1_abr.smil/chunklist_b4200000.m3u8
 #EXTINF:-1 tvg-id="vinhlong2hd" group-title="Truyền Hình" tvg-logo="https://i.ibb.co/DfP0YVnZ/THVL2-2025-1.png", THVL2
-https://ott3.nethubtv.vn/live/bentretv/playlist.m3u8
+https://live.fptplay53.net/epzch2/vinhlong2_abr.smil/chunklist_b4200000.m3u8
 #EXTINF:-1 tvg-id="vinhlong3hd" group-title="Truyền Hình" tvg-logo="https://i.ibb.co/SDbtCZGg/THVL3-2025.png", THVL3
-https://liveh34.seenow.vn/hls/VINHLONG3/03.m3u8
+https://ott3.nethubtv.vn/live/bentretv/playlist.m3u8
 #EXTINF:-1 tvg-id="vinhlong4hd" group-title="Truyền Hình" tvg-logo="https://i.ibb.co/SDD1sNry/THVL4-2025.png", THVL4
 https://liveh34.seenow.vn/hls/VINHLONG4/03.m3u8
 #EXTINF:-1 tvg-id="vinhlong5hd" group-title="Truyền Hình" tvg-logo="https://i.ibb.co/BKHTG3D1/Screenshot-20250903-125210.jpg", THVL5
