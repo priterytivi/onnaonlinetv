@@ -25,7 +25,7 @@ https://liveh12.seenow.vn/hls/VTV3_HD/index.m3u8
 https://liveh12.seenow.vn/hls/VTV4_HD/index.m3u8
 #EXTINF:-1 tvg-id="vtv5hd" group-title="Truyền Hình" tvg-logo="https://i.ibb.co/dJbBrw6K/VTV5-1.png", VTV5
 https://liveh12.seenow.vn/hls/VTV5_HD/index.m3u8
-#EXTINF:-1 tvg-id="vtvcantho" group-title="Truyền Hình" tvg-logo="https://i.ibb.co/dJbBrw6K/VTV5-1.png", VTV Cần Thơ
+#EXTINF:-1 tvg-id="vtvcantho" group-title="Truyền Hình" tvg-logo="https://i.ibb.co/VcM7tQjh/VTV-C-n-Th.png", VTV Cần Thơ
 https://liveh12.seenow.vn/hls/VTVCANTHO_HD/index.m3u8
 #EXTINF:-1 tvg-id="vtv7hd" group-title="Truyền Hình" tvg-logo="https://i.ibb.co/s7ktWXP/VTV7-1.png", VTV7
 https://liveh12.seenow.vn/hls/VTV7_HD/index.m3u8
@@ -35,10 +35,16 @@ https://liveh12.seenow.vn/hls/VIETNAMTODAY/index.m3u8
 https://wowza.danet.vn/live/antv/chunklist_w1998701349.m3u8
 #EXTINF:-1 tvg-id="qpvnhd" group-title="Truyền Hình" tvg-logo="https://i.ibb.co/svWGwbCf/94.jpg", QPVN
 https://wowza.danet.vn/live/quocphong/playlist.m3u8
+#EXTINF:-1 tvg-id="htv2hd" group-title="Truyền Hình" tvg-logo="https://i.ibb.co/DDTR2Wny/Vie-Channel-HTV2-1.png", HTV2
+https://liveh12.seenow.vn/hls/HTV2/index.m3u8
+#EXTINF:-1 tvg-id="htv3" group-title="Truyền Hình" tvg-logo="https://i.ibb.co/S4Vwh7zz/HTV3-1.png", HTV3
+https://liveh12.seenow.vn/hls/HTV3/index.m3u8
 #EXTINF:-1 tvg-id="htv7hd" group-title="Truyền Hình" tvg-logo="https://i.ibb.co/fYZzV3DY/HTV7-ident-2022-no-logo.png", HTV7
 https://live.fptplay53.net/epzhd1/htv7hd_vhls.smil/chunklist_b5000000.m3u8
 #EXTINF:-1 tvg-id="htv9hd" group-title="Truyền Hình" tvg-logo="https://i.ibb.co/PZbxmWJL/HTV9-ident-2022-no-logo.png", HTV9
 https://live.fptplay53.net/epzhd1/htv9hd_vhls.smil/chunklist_b5000000.m3u8
+#EXTINF:-1 tvg-id="htvthethaohd" group-title="Truyền Hình" tvg-logo="https://i.ibb.co/HDq474f9/HTV-Th-Thao.png", HTV Thể Thao
+https://liveh34.vtvprime.vn/hls/VUNGTAUTV/03.m3u8
 #EXTINF:-1 tvg-id="vinhlong1hd" group-title="Truyền Hình" tvg-logo="https://i.ibb.co/xq3cTjNS/THVL1-2025-1.png", THVL1
 https://live.fptplay53.net/epzch2/vinhlong1_abr.smil/chunklist_b4200000.m3u8
 #EXTINF:-1 tvg-id="vinhlong2hd" group-title="Truyền Hình" tvg-logo="https://i.ibb.co/DfP0YVnZ/THVL2-2025-1.png", THVL2
@@ -64,3 +70,9 @@ https://str.vov.gov.vn/vovlive/vovGTHCM.sdp_aac/chunklist_w1213978008.m3u8
 https://str.vov.gov.vn/vovlive/vovgtMeKong.sdp_aac/chunklist_w1338501805.m3u8
 #EXTINF:-1 tvg-id="vovgtduyenhai" group-title="Phát Thanh" tvg-logo="https://i.ibb.co/psNmrtQ/2025100308023521.jpg", VOV Giao Thông Duyên Hải
 https://play.vovgiaothong.vn/live/duyenhai/playlist.m3u8
+#EXTINF:-1 tvg-id="voh956" group-title="Phát Thanh" tvg-logo="https://i.ibb.co/vxLDsvRg/lv-0-20251110114009.jpg", VOH 95,6 Mhz
+https://strm.voh.com.vn/radio/channel1/chunklist_w1203304311.m3u8
+#EXTINF:-1 tvg-id="voh999" group-title="Phát Thanh" tvg-logo="https://i.ibb.co/39F3j68Q/lv-0-20251110113935.jpg", VOH 99,9 Mhz
+https://strm.voh.com.vn/radio/channel3/chunklist_w1936699032.m3u8
+#EXTINF:-1 tvg-id="voh610" group-title="Phát Thanh" tvg-logo="https://i.ibb.co/zTpmgN9R/lv-0-20251110114051.jpg", VOH AM 610 Mhz
+https://strm.voh.com.vn/radio/channel2/chunklist_w558517770.m3u8
