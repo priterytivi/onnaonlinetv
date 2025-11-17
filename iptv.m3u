@@ -17,6 +17,10 @@ https://server.priterytivi.com/ATVHD/index.m3u8
 https://onnanetwork.xyz/TwitchTV/?hoang_ho2812&index.m3u8
 #EXTINF:-1 tvg-id="vtv1hd" group-title="Truyền Hình" tvg-logo="https://i.ibb.co/5hBCgVwV/VTV1.png", VTV1
 https://wowza.danet.vn/live/vtv1/chunklist_w1613490240.m3u8
+#EXTINF:-1 tvg-id="vtv2hd" group-title="Truyền Hình" tvg-logo="https://i.ibb.co/SXYVyNVW/VTV2.png", VTV2
+https://liveh12.seenow.vn/hls/VTV2_HD/index.m3u8
+#EXTINF:-1 tvg-id="vtv3hd" group-title="Truyền Hình" tvg-logo="https://i.ibb.co/Jw05CcwV/VTV3.png", VTV3
+https://liveh12.seenow.vn/hls/VTV3_HD/index.m3u8
 #EXTINF:-1 tvg-id="antvhd" group-title="Truyền Hình" tvg-logo="https://i.ibb.co/W9mYZGj/90.jpg", ANTV
 https://wowza.danet.vn/live/antv/chunklist_w1998701349.m3u8
 #EXTINF:-1 tvg-id="qpvnhd" group-title="Truyền Hình" tvg-logo="https://i.ibb.co/svWGwbCf/94.jpg", QPVN
