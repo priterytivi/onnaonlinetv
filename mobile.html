@@ -446,6 +446,8 @@ function parseM3U(txt){
       if(url && !url.startsWith("#")){
 
         let type="tv";
+        
+        if(currentGroup.includes("truyền hình")||currentGroup.includes("tv")) type="tv";
 
         if(currentGroup.includes("phát thanh")||currentGroup.includes("radio")) type="radio";
 
