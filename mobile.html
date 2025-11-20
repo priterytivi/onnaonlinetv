@@ -10,6 +10,8 @@
 
   <title>ONNA Online TV - Xem Tivi Trực Tuyến</title>
 
+  <script src="https://onnaonlinetv.xyz/playerjs.js"></script>
+
   <style>
 
     body { margin:0; font-family:Arial,sans-serif; background:#fafafa; }
@@ -244,10 +246,34 @@
   <!-- Player -->
 
   <div id="player">
+    
+    <div id="player-box" style="width:100%;height:100%;"></div>
+    <button class="close-player">✖</button>
+</div>
 
-    <video id="video-player" controls playsinline></video>
+<script src="https://onnaonlinetv.xyz/playerjs.js"></script>
+<script>
+let player = null;
 
-    <audio id="audio-player" controls></audio>
+// Hàm phát
+function playStream(url, type) {
+    document.getElementById("player").classList.add("open");
+
+    player = new Playerjs({
+        id: "player-box",
+        file: url,
+        autoplay: 1
+    });
+}
+
+// Nút đóng
+document.querySelector(".close-player").onclick = () => {
+    document.getElementById("player").classList.remove("open");
+    if (player) player.api("stop");
+};
+</script>
+
+    <div id="player-box" style="width:100%;height:100%;"></div>
 
     <button class="close-player">✖</button>
 
