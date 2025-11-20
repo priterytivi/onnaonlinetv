@@ -84,23 +84,23 @@ https://live.fptplay53.net/epzsd1/tayninh01_hls.smil/chunklist.m3u8
 #EXTINF:-1 tvg-id="tayninh2" group-title="Truyền Hình" tvg-logo="https://onnaonlinetv.xyz/thumbnail/ttv2.png", Tây Ninh 2
 https://live.fptplay53.net/epzsd1/tayninhhd_hls.smil/chunklist.m3u8
 
-#EXTINF:-1 tvg-id="vov1" group-title="Phát Thanh" tvg-logo="https://i.ibb.co/xKs0wJCV/2025100307210952.jpg", VOV1
+#EXTINF:-1 tvg-id="vov1" group-title="Phát Thanh" tvg-logo="https://onnaonlinetv.xyz/thumbnail/vov1.png", VOV1
 https://str.vov.gov.vn/vovlive/vov1vov5Vietnamese.sdp_aac/chunklist_w1111402987.m3u8
-#EXTINF:-1 tvg-id="vov2" group-title="Phát Thanh" tvg-logo="https://i.ibb.co/gZ6XGbMt/2025100308014841.jpg", VOV2
+#EXTINF:-1 tvg-id="vov2" group-title="Phát Thanh" tvg-logo="https://onnaonlinetv.xyz/thumbnail/vov2.png", VOV2
 https://str.vov.gov.vn/vovlive/vov2.sdp_aac/chunklist_w504296959.m3u8
-#EXTINF:-1 tvg-id="vov3" group-title="Phát Thanh" tvg-logo="https://i.ibb.co/PzTdQ5F2/2025100308021391.jpg", VOV3
+#EXTINF:-1 tvg-id="vov3" group-title="Phát Thanh" tvg-logo="https://onnaonlinetv.xyz/thumbnail/vov3.png", VOV3
 https://str.vov.gov.vn/vovlive/vov3.sdp_aac/chunklist_w1783069155.m3u8
-#EXTINF:-1 tvg-id="vovgthn" group-title="Phát Thanh" tvg-logo="https://i.ibb.co/F4bq1SF3/2025100308055245.jpg", VOV Giao thông Hà Nội
+#EXTINF:-1 tvg-id="vovgthn" group-title="Phát Thanh" tvg-logo="https://onnaonlinetv.xyz/thumbnail/vovgthn.png", VOV Giao thông Hà Nội
 https://str.vov.gov.vn/vovlive/vovGTHN.sdp_aac/chunklist_w601606653.m3u8
-#EXTINF:-1 tvg-id="vovgthcm" group-title="Phát Thanh" tvg-logo="https://i.ibb.co/93pLRy9Y/2025100308061004.jpg", VOV Giao thông Hồ Chí Minh
+#EXTINF:-1 tvg-id="vovgthcm" group-title="Phát Thanh" tvg-logo="https://onnaonlinetv.xyz/thumbnail/vovgthcm.png", VOV Giao thông Hồ Chí Minh
 https://str.vov.gov.vn/vovlive/vovGTHCM.sdp_aac/chunklist_w1213978008.m3u8
-#EXTINF:-1 tvg-id="vovgtmekong" group-title="Phát Thanh" tvg-logo="https://i.ibb.co/3YGvDxBF/2025100308063676.jpg", VOV Giao Thông Mekong
+#EXTINF:-1 tvg-id="vovgtmekong" group-title="Phát Thanh" tvg-logo="https://onnaonlinetv.xyz/thumbnail/vovgtmekong.png", VOV Giao Thông Mekong
 https://str.vov.gov.vn/vovlive/vovgtMeKong.sdp_aac/chunklist_w1338501805.m3u8
-#EXTINF:-1 tvg-id="vovgtduyenhai" group-title="Phát Thanh" tvg-logo="https://i.ibb.co/psNmrtQ/2025100308023521.jpg", VOV Giao Thông Duyên Hải
+#EXTINF:-1 tvg-id="vovgtduyenhai" group-title="Phát Thanh" tvg-logo="https://onnaonlinetv.xyz/thumbnail/vovgtduyenhai.png", VOV Giao Thông Duyên Hải
 https://play.vovgiaothong.vn/live/duyenhai/playlist.m3u8
-#EXTINF:-1 tvg-id="voh956" group-title="Phát Thanh" tvg-logo="https://i.ibb.co/vxLDsvRg/lv-0-20251110114009.jpg", VOH 95,6 Mhz
+#EXTINF:-1 tvg-id="voh956" group-title="Phát Thanh" tvg-logo="https://onnaonlinetv.xyz/thumbnail/voh_95mhz.png", VOH 95,6 Mhz
 https://strm.voh.com.vn/radio/channel1/chunklist_w1203304311.m3u8
-#EXTINF:-1 tvg-id="voh999" group-title="Phát Thanh" tvg-logo="https://i.ibb.co/39F3j68Q/lv-0-20251110113935.jpg", VOH 99,9 Mhz
+#EXTINF:-1 tvg-id="voh999" group-title="Phát Thanh" tvg-logo="https://onnaonlinetv.xyz/thumbnail/voh_99mhz.png", VOH 99,9 Mhz
 https://strm.voh.com.vn/radio/channel3/chunklist_w1936699032.m3u8
-#EXTINF:-1 tvg-id="voh610" group-title="Phát Thanh" tvg-logo="https://i.ibb.co/zTpmgN9R/lv-0-20251110114051.jpg", VOH AM 610 Mhz
+#EXTINF:-1 tvg-id="voh610" group-title="Phát Thanh" tvg-logo="https://onnaonlinetv.xyz/thumbnail/voh_am610mhz.png", VOH AM 610 Mhz
 https://strm.voh.com.vn/radio/channel2/chunklist_w558517770.m3u8
