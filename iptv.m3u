@@ -69,6 +69,12 @@ https://cloudstreamhntv.tek4tv.vn/events/HN2/chunklist_w1097979085.m3u8
 https://live.mediatech.vn/live/285b59a111d76974225a8e3004bfc31a509/chunklist.m3u8
 #EXTINF:-1 tvg-id="danang2" group-title="Truyền Hình" tvg-logo="https://onnaonlinetv.xyz/thumbnail/dnrt2.png", Đà Nẵng 2
 https://live.mediatech.vn/live/2859145290d0d7947ef88b6240123b62474/chunklist.m3u8
+#EXTINF:-1 tvg-id="cantho1" group-title="Truyền Hình" tvg-logo="https://onnaonlinetv.xyz/thumbnail/thtpct1.png", Cần Thơ 1
+https://live.canthotv.vn/live/tv/playlist.m3u8
+#EXTINF:-1 tvg-id="cantho2" group-title="Truyền Hình" tvg-logo="https://onnaonlinetv.xyz/thumbnail/thtpct2.png", Cần Thơ 2
+https://megasystems-6c680321cd.gw-dthcdn.com/haugiangtv/haugiangtv.m3u8
+#EXTINF:-1 tvg-id="cantho3" group-title="Truyền Hình" tvg-logo="https://onnaonlinetv.xyz/thumbnail/thtpct3.png", Cần Thơ 3
+https://live.canthotv.vn/live/cs3/playlist.m3u8
 
 #EXTINF:-1 tvg-id="vov1" group-title="Phát Thanh" tvg-logo="https://i.ibb.co/xKs0wJCV/2025100307210952.jpg", VOV1
 https://str.vov.gov.vn/vovlive/vov1vov5Vietnamese.sdp_aac/chunklist_w1111402987.m3u8
