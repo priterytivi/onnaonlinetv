@@ -1,0 +1,1 @@
+Đây là tất cả những dòng code lập nên website ONNA Online TV, nếu mọi người muốn sử dụng để lập website truyền hình xin vui lòng hãy ghi nguồn người đã lập ra nó và không sử dụng nó với mục đích thương mại nếu chưa có sự cho phép
