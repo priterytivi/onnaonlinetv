@@ -58,7 +58,7 @@ https://ott3.nethubtv.vn/live/bentretv/playlist.m3u8
 #EXTINF:-1 tvg-id="vinhlong4hd" group-title="Truyền Hình" tvg-logo="https://i.ibb.co/SDD1sNry/THVL4-2025.png", THVL4
 https://liveh34.seenow.vn/hls/VINHLONG4/03.m3u8
 #EXTINF:-1 tvg-id="vinhlong5hd" group-title="Truyền Hình" tvg-logo="https://i.ibb.co/BKHTG3D1/Screenshot-20250903-125210.jpg", THVL5
-https://freem3u.xyz/api/live/play.m3u8?vid=9
+https://freem3u.xyz/api/live/play.m3u8?vid=91
 #EXTINF:-1 tvg-id="hanoi1" group-title="Truyền Hình" tvg-logo="https://i.ibb.co/PvNN8cxH/HTV1.png", Hà Nội 1
 https://liveh34.seenow.vn/hls/HANOI1TV/index.m3u8
 #EXTINF:-1 tvg-id="hanoi2" group-title="Truyền Hình" tvg-logo="https://i.ibb.co/j92vrZRV/HTV2.png", Hà Nội 2
