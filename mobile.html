@@ -10,8 +10,8 @@
 
   <title>ONNA Online TV - Xem Tivi Trực Tuyến</title>
 
-  <script src="https://onnaonlinetv.xyz/playerjs.js"></script>
-
+  <!-- PlayerJS -->
+<script src="https://onnaonlinetv.xyz/playerjs.js"></script>
   <style>
 
     body { margin:0; font-family:Arial,sans-serif; background:#fafafa; }
@@ -184,7 +184,7 @@
 
     <div id="menu-btn">☰</div>
 
-    <img id="search-btn" src="/search.png" alt="Search">
+    <img id="search-btn" src="https://raw.githubusercontent.com/priterytivi/onnanetwork/refs/heads/main/search%20icon.png" alt="Search">
 
   </div>
 
@@ -246,37 +246,10 @@
   <!-- Player -->
 
   <div id="player">
-    
-    <div id="player-box" style="width:100%;height:100%;"></div>
-    <button class="close-player">✖</button>
-</div>
 
-<video id="video-player" ...></video>
-<audio id="audio-player" ...></audio>
-  
-<script src="https://onnaonlinetv.xyz/playerjs.js"></script>
-<script>
-let player = null;
+    <video id="video-player" controls playsinline></video>
 
-// Hàm phát
-function playStream(url, type) {
-    document.getElementById("player").classList.add("open");
-
-    player = new Playerjs({
-        id: "player-box",
-        file: url,
-        autoplay: 1
-    });
-}
-
-// Nút đóng
-document.querySelector(".close-player").onclick = () => {
-    document.getElementById("player").classList.remove("open");
-    if (player) player.api("stop");
-};
-</script>
-
-    <div id="player-box" style="width:100%;height:100%;"></div>
+    <audio id="audio-player" controls></audio>
 
     <button class="close-player">✖</button>
 
@@ -288,13 +261,13 @@ document.querySelector(".close-player").onclick = () => {
 
     <button id="btn-tv" class="active">
 
-      <img src="/tv.png" alt="TV">
+      <img src="https://raw.githubusercontent.com/priterytivi/onnanetwork/refs/heads/main/tv%20icon.png" alt="TV">
 
     </button>
 
     <button id="btn-radio">
 
-      <img src="/radio.png" alt="Radio">
+      <img src="https://raw.githubusercontent.com/priterytivi/onnanetwork/refs/heads/main/radio%20icon.png" alt="Radio">
 
     </button>
 
@@ -302,7 +275,7 @@ document.querySelector(".close-player").onclick = () => {
 
 <script>
 
-const playlistUrl = "/iptv.m3u";
+const playlistUrl = "/iptv.txt";
 
 let allChannels = [];
 
