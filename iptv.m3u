@@ -35,6 +35,8 @@ https://liveh12.seenow.vn/hls/VIETNAMTODAY/index.m3u8
 https://wowza.danet.vn/live/antv/chunklist_w1998701349.m3u8
 #EXTINF:-1 tvg-id="qpvnhd" group-title="Truyền Hình" tvg-logo="https://i.ibb.co/svWGwbCf/94.jpg", QPVN
 https://wowza.danet.vn/live/quocphong/playlist.m3u8
+#EXTINF:-1 tvg-id="htv1" group-title="Truyền Hình" tvg-logo="https://i.ibb.co/XfM2k4Y6/HTV1.png", HTV1
+https://live.fptplay53.net/epzhd1/htv1_hls.smil/chunklist.m3u8
 #EXTINF:-1 tvg-id="htv2hd" group-title="Truyền Hình" tvg-logo="https://i.ibb.co/DDTR2Wny/Vie-Channel-HTV2-1.png", HTV2
 https://liveh12.seenow.vn/hls/HTV2/index.m3u8
 #EXTINF:-1 tvg-id="htv3" group-title="Truyền Hình" tvg-logo="https://i.ibb.co/S4Vwh7zz/HTV3-1.png", HTV3
