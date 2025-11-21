@@ -1,15 +1,15 @@
 #EXTM3U x-tvg-url="http://lichphatsong.site/schedule/epg.xml"
 
 #EXTINF:-1 tvg-id="ksport1hd" group-title="List VIP (Thằng nào share chặt cu)" tvg-logo="https://onnaonlinetv.xyz/thumbnail/kplus_sports1.png", K+ Sports 1
-http://dmbonspamcmtsaodon.myftp.org:8182/udp/232.84.1.98:8562
+http://dmbonspamcmtsaodon.myftp.org/udp/232.84.1.98:8562
 #EXTINF:-1 tvg-id="ksport2hd" group-title="List VIP (Thằng nào share chặt cu)" tvg-logo="https://onnaonlinetv.xyz/thumbnail/kplus_sports2.png", K+ Sports 2
-http://dmbonspamcmtsaodon.myftp.org:8182/udp/232.84.1.34:8178
+http://dmbonspamcmtsaodon.myftp.org/udp/232.84.1.34:8178
 #EXTINF:-1 tvg-id="kactionhd" group-title="List VIP (Thằng nào share chặt cu)" tvg-logo="https://onnaonlinetv.xyz/thumbnail/kplus_action.png", K+ Action
-http://dmbonspamcmtsaodon.myftp.org:8182/udp/232.84.1.97:8556
+http://dmbonspamcmtsaodon.myftp.org/udp/232.84.1.97:8556
 #EXTINF:-1 tvg-id="kcinehd" group-title="List VIP (Thằng nào share chặt cu)" tvg-logo="https://onnaonlinetv.xyz/thumbnail/kplus_cine.png", K+ Cine
-http://dmbonspamcmtsaodon.myftp.org:8182/udp/232.84.1.96:8550
+http://dmbonspamcmtsaodon.myftp.org/udp/232.84.1.96:8550
 #EXTINF:-1 tvg-id="kkidshd" group-title="List VIP (Thằng nào share chặt cu)" tvg-logo="https://onnaonlinetv.xyz/thumbnail/kplus_kids.png", K+ Kids
-http://dmbonspamcmtsaodon.myftp.org:8182/udp/232.84.3.43:11794
+http://dmbonspamcmtsaodon.myftp.org/udp/232.84.3.43:11794
 
 
 
