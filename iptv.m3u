@@ -66,9 +66,9 @@ https://liveh34.seenow.vn/hls/HANOI2TV/index.m3u8
 #EXTINF:-1 tvg-id="hanoi2" group-title="Truyền Hình" tvg-logo="https://onnaonlinetv.xyz/thumbnail/hanoitv2_4k.png", Hà Nội 2 4K
 https://cloudstreamhntv.tek4tv.vn/events/HN2/chunklist_w1097979085.m3u8
 #EXTINF:-1 tvg-id="danang1" group-title="Truyền Hình" tvg-logo="https://onnaonlinetv.xyz/thumbnail/dnrt1.png", Đà Nẵng 1
-https://live.mediatech.vn/live/285b59a111d76974225a8e3004bfc31a509/chunklist.m3u8
+https://proxy.liyao.space/https://live.mediatech.vn/live/285b59a111d76974225a8e3004bfc31a509/chunklist.m3u8
 #EXTINF:-1 tvg-id="danang2" group-title="Truyền Hình" tvg-logo="https://onnaonlinetv.xyz/thumbnail/dnrt2.png", Đà Nẵng 2
-https://live.mediatech.vn/live/2859145290d0d7947ef88b6240123b62474/chunklist.m3u8
+https://proxy.liyao.space/https://live.mediatech.vn/live/2859145290d0d7947ef88b6240123b62474/chunklist.m3u8
 #EXTINF:-1 tvg-id="cantho1" group-title="Truyền Hình" tvg-logo="https://onnaonlinetv.xyz/thumbnail/thtpct1.png", Cần Thơ 1
 https://live.canthotv.vn/live/tv/playlist.m3u8
 #EXTINF:-1 tvg-id="cantho2" group-title="Truyền Hình" tvg-logo="https://onnaonlinetv.xyz/thumbnail/thtpct2.png", Cần Thơ 2
