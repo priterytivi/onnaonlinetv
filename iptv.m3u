@@ -85,6 +85,12 @@ https://live.fptplay53.net/epzsd1/dongnai2_hls.smil/chunklist.m3u8
 https://live.fptplay53.net/epzsd1/tayninh01_hls.smil/chunklist.m3u8
 #EXTINF:-1 tvg-id="tayninh2" group-title="Truyền Hình" tvg-logo="https://onnaonlinetv.xyz/thumbnail/ttv2.png", Tây Ninh 2
 https://live.fptplay53.net/epzsd1/tayninhhd_hls.smil/chunklist.m3u8
+#EXTINF:-1 tvg-id="angiang1" group-title="Truyền Hình" tvg-logo="https://onnaonlinetv.xyz/thumbnail/atv1.png", An Giang 1
+https://proxy.liyao.space/tv.angiangtv.vn/live/kgtv/kgtv.m3u8
+#EXTINF:-1 tvg-id="angiang2" group-title="Truyền Hình" tvg-logo="https://onnaonlinetv.xyz/thumbnail/atv2.png", An Giang 2
+https://live.fptplay53.net/epzsd1/angiang_hls.smil/chunklist.m3u8
+#EXTINF:-1 tvg-id="angiang3" group-title="Truyền Hình" tvg-logo="https://onnaonlinetv.xyz/thumbnail/atv3.png", An Giang 3
+https://proxy.liyao.space/tv.angiangtv.vn/live/kgtv1/kgtv1.m3u8
 
 #EXTINF:-1 tvg-id="vov1" group-title="Phát Thanh" tvg-logo="https://onnaonlinetv.xyz/thumbnail/vov1.png", VOV1
 https://str.vov.gov.vn/vovlive/vov1vov5Vietnamese.sdp_aac/chunklist_w1111402987.m3u8
