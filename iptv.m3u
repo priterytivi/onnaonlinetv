@@ -87,6 +87,8 @@ https://live.fptplay53.net/epzsd1/dongnai2_hls.smil/chunklist.m3u8
 https://live.fptplay53.net/epzsd1/tayninh01_hls.smil/chunklist.m3u8
 #EXTINF:-1 tvg-id="tayninh2" group-title="Truyền Hình" tvg-logo="https://onnaonlinetv.xyz/thumbnail/ttv2.png", Tây Ninh 2
 https://live.fptplay53.net/epzsd1/tayninhhd_hls.smil/chunklist.m3u8
+#EXTINF:-1 tvg-id="angiang1" group-title="Truyền Hình" tvg-logo="https://onnaonlinetv.xyz/thumbnail/atv1.png" catchup="default" catchup-days="3" catchup-source="https://tv.angiangtv.vn/replay/index2.php/kgtv/, ATV1 (Test)
+https://proxy.liyao.space/tv.angiangtv.vn/live/kgtv/kgtv.m3u8
 #EXTINF:-1 tvg-id="angiang1" group-title="Truyền Hình" tvg-logo="https://onnaonlinetv.xyz/thumbnail/atv1.png", An Giang 1
 https://proxy.liyao.space/tv.angiangtv.vn/live/kgtv/kgtv.m3u8
 #EXTINF:-1 tvg-id="angiang2" group-title="Truyền Hình" tvg-logo="https://onnaonlinetv.xyz/thumbnail/atv2.png", An Giang 2
