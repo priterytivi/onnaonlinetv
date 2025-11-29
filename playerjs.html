@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlayerJS - YouTube Player</title>
+
+    <style>
+        body {
+            background: #000;
+            margin: 0;
+            padding: 0;
+        }
+        #player {
+            width: 100%;
+            height: 320px;
+            background: #000;
+        }
+        .box {
+            padding: 10px;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            background: #222;
+            color: #fff;
+            border: 1px solid #444;
+            border-radius: 5px;
+        }
+        button {
+            width: 100%;
+            margin-top: 10px;
+            padding: 10px;
+            background: #1db954;
+            border: none;
+            color: white;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="player"></div>
+
+    <div class="box">
+        <input id="url" type="text" placeholder="Nhập link YouTube hoặc link video bất kỳ...">
+        <button onclick="startPlay()">Phát video</button>
+    </div>
+
+    <!-- Player của bạn -->
+    <script src="https://onnaonlinetv.xyz/playerjs.js"></script>
+
+    <script>
+        // Lấy ID YouTube từ URL
+        function getYouTubeID(url) {
+            let reg = /(?:youtube\.com.*v=|youtu\.be\/)([^&]+)/;
+            let match = url.match(reg);
+            return match ? match[1] : null;
+        }
+
+        // Hàm phát video
+        function playVideo(url) {
+            let ytID = getYouTubeID(url);
+
+            // Nếu là link YouTube
+            if (ytID) {
+                document.getElementById("player").innerHTML = `
+                    <iframe 
+                        width="100%" 
+                        height="100%" 
+                        src="https://www.youtube.com/embed/${ytID}?autoplay=1&playsinline=1"
+                        frameborder="0"
+                        allow="autoplay; encrypted-media"
+                        allowfullscreen>
+                    </iframe>
+                `;
+                return;
+            }
+
+            // Nếu là mp4, m3u8, webm...
+            document.getElementById("player").innerHTML = `
+                <video width="100%" height="100%" controls autoplay>
+                    <source src="${url}">
+                </video>
+            `;
+        }
+
+        // Khi bấm nút
+        function startPlay() {
+            const url = document.getElementById("url").value;
+            if (url.trim() === "") {
+                alert("Vui lòng nhập URL!");
+                return;
+            }
+            playVideo(url);
+        }
+
+        // Tự chạy mẫu YouTube khi mở trang
+        playVideo("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
+    </script>
+
+</body>
+</html>
