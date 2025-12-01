@@ -96,7 +96,7 @@ https://proxy.liyao.space/tv.angiangtv.vn/live/kgtv1/kgtv1.m3u8
 #EXTINF:-1 tvg-id="bacninh" group-title="Truyền Hình" tvg-logo="https://onnaonlinetv.xyz/thumbnail/bacninhtv.png", Bắc Ninh
 https://freem3u.xyz/api/live/play.m3u8?vid=39
 #EXTINF:-1 tvg-id="camau" group-title="Truyền Hình" tvg-logo="https://onnaonlinetv.xyz/thumbnail/camautv.png", Cà Mau
-https://tv.ctvcamau.vn/live/tv/tv.m3u8
+https://proxy.liyao.space/tv.ctvcamau.vn/live/tv/tv.m3u8
 
 #EXTINF:-1 tvg-id="vov1" group-title="Phát Thanh" tvg-logo="https://onnaonlinetv.xyz/thumbnail/vov1.png", VOV1
 https://str.vov.gov.vn/vovlive/vov1vov5Vietnamese.sdp_aac/chunklist_w1111402987.m3u8
