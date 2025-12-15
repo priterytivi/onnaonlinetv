@@ -126,3 +126,6 @@ https://strm.voh.com.vn/radio/channel1/chunklist_w1203304311.m3u8
 https://strm.voh.com.vn/radio/channel3/chunklist_w1936699032.m3u8
 #EXTINF:-1 tvg-id="voh610" group-title="Phát Thanh" tvg-logo="https://onnaonlinetv.xyz/thumbnail/voh_am610mhz.png", VOH AM 610 Mhz
 https://strm.voh.com.vn/radio/channel2/chunklist_w558517770.m3u8
+
+#EXTINF:-1 tvg-id="monfansublive" group-title="Trực Tiếp" tvg-logo="https://onnaonlinetv.xyz/thumbnail/vov1.png", Mon Fansub Live
+https://onnanetwork.xyz/1.org.vn/onna-monfansublive/?/index.m3u8
