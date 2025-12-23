@@ -62,7 +62,7 @@ https://ott3.nethubtv.vn/live/bentretv/playlist.m3u8
 #EXTINF:-1 tvg-id="vinhlong4hd" group-title="Truyền Hình" tvg-logo="https://onnaonlinetv.xyz/thumbnail/thvl4.png", THVL4
 https://liveh34.seenow.vn/hls/VINHLONG4/03.m3u8
 #EXTINF:-1 tvg-id="vinhlong5hd" group-title="Truyền Hình" tvg-logo="https://onnaonlinetv.xyz/thumbnail/thvl5.png", THVL5
-https://freem3u.xyz/api/live/play.m3u8?vid=91
+https://cmcdp2.vtvdigital.vn/hls/TRAVINHTV/index.m3u8
 #EXTINF:-1 tvg-id="hanoi1" group-title="Truyền Hình" tvg-logo="https://onnaonlinetv.xyz/thumbnail/hanoitv1.png", Hà Nội 1
 https://liveh34.seenow.vn/hls/HANOI1TV/index.m3u8
 #EXTINF:-1 tvg-id="hanoi2" group-title="Truyền Hình" tvg-logo="https://onnaonlinetv.xyz/thumbnail/hanoitv2.png", Hà Nội 2
@@ -71,8 +71,6 @@ https://liveh34.seenow.vn/hls/HANOI2TV/index.m3u8
 https://cloudstreamhntv.tek4tv.vn/events/HN2/chunklist_w1097979085.m3u8
 #EXTINF:-1 tvg-id="hitv" group-title="Truyền Hình" tvg-logo="https://onnaonlinetv.xyz/thumbnail/hitv.png", HiTV
 https://freem3u.xyz/api/live/play.m3u8?vid=32
-#EXTINF:-1 tvg-id="shopping24h" group-title="Truyền Hình" tvg-logo="https://onnaonlinetv.xyz/thumbnail/laugabinhthuan6.png", Shopping 24h
-https://onnanetwork.xyz/1.org.vn/onna-vtvcab2/?/index.m3u8
 #EXTINF:-1 tvg-id="danang1" group-title="Truyền Hình" tvg-logo="https://onnaonlinetv.xyz/thumbnail/dnrt1.png", Đà Nẵng 1
 https://onnanetwork.xyz/https://live.mediatech.vn/live/285b59a111d76974225a8e3004bfc31a509/chunklist.m3u8
 #EXTINF:-1 tvg-id="danang2" group-title="Truyền Hình" tvg-logo="https://onnaonlinetv.xyz/thumbnail/dnrt2.png", Đà Nẵng 2
@@ -98,7 +96,7 @@ https://onnanetwork.xyz/tv.angiangtv.vn/live/kgtv2/kgtv2.m3u8
 #EXTINF:-1 tvg-id="angiang3" group-title="Truyền Hình" tvg-logo="https://onnaonlinetv.xyz/thumbnail/atv3.png", An Giang 3
 https://onnanetwork.xyz/tv.angiangtv.vn/live/kgtv1/kgtv1.m3u8
 #EXTINF:-1 tvg-id="bacninh" group-title="Truyền Hình" tvg-logo="https://onnaonlinetv.xyz/thumbnail/bacninhtv.png", Bắc Ninh
-https://freem3u.xyz/api/live/play.m3u8?vid=39
+https://cmcdp2.vtvdigital.vn/hls/BACGIANGTV/index.m3u8
 #EXTINF:-1 tvg-id="camau" group-title="Truyền Hình" tvg-logo="https://onnaonlinetv.xyz/thumbnail/camautv.png", Cà Mau
 https://onnanetwork.xyz/tv.ctvcamau.vn/live/tv/tv.m3u8
 #EXTINF:-1 tvg-id="dienbien" group-title="Truyền Hình" tvg-logo="https://onnaonlinetv.xyz/thumbnail/dienbien.png", Điện Biên
