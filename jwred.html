@@ -1,40 +1,100 @@
-
-	<html> 
+<!DOCTYPE html>
+<html lang="vi">
 <head>
-	<title>Player</title>
-	<meta name='viewport' content='width=device-width, initial-scale=1'>
-<meta charset='utf-8'>
-		 <style>html,body{margin:0;padding:0;background:#000;;}</style>
+<meta charset="UTF-8">
+<title>Player</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<script src='https://ssl.p.jwpcdn.com/player/v/8.38.2/jwplayer.js'>
-</script>
-<script type="text/javascript">
-function getParam ( sname )
-{
-  var params = location.search.substr(location.search.indexOf("?")+1);
-  var sval =  params.replace("url=", "");
-  return sval;
+<script src="https://ssl.p.jwpcdn.com/player/v/8.34.1/jwplayer.js"></script>
+
+<style>
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
 }
-var sv = getParam("sv");
-</script>
-<script type='text/javascript'>jwplayer.key = 'W7zSm81+mmIsg7F+fyHRKhF3ggLkTqtGMhvI92kbqf/ysE99';
-</script> 
-</head>
- <body> 
-<!-- Here is the <div> for the player --> 
-<div id='playertv'>
-</div>
- <script type='text/JavaScript'>
- jwplayer('playertv').setup({ 
- 
-		"file": sv,
-        controls: 'true',
-        width: '100%',
-        height: '100%',    
-        stretching: 'uniform',
-        autostart: 'true'
-}); 
-</script> 
-</body> 
-  </html>
 
+#player {
+    width: 100%;
+    height: 100vh;
+}
+
+.jw-progress {
+    background-color: #ff0000 !important;
+}
+.jw-buffer {
+    background-color: rgba(255,0,0,0.4) !important;
+}
+.jw-icon-playback,
+.jw-icon-volume,
+.jw-icon-settings,
+.jw-icon-fullscreen {
+    color: #ff0000 !important;
+}
+.jw-icon:hover {
+    color: #ff3b3b !important;
+}
+.jw-controlbar {
+    background: linear-gradient(
+        to top,
+        rgba(0,0,0,0.85),
+        rgba(0,0,0,0.3)
+    ) !important;
+}
+.jw-slider-time {
+    height: 4px !important;
+}
+.jw-logo {
+    display: none !important;
+}
+</style>
+</head>
+
+<body>
+
+<div id="player"></div>
+
+<script>
+
+const params = new URLSearchParams(window.location.search);
+const videoUrl = params.get("url");
+
+if (!videoUrl) {
+    document.body.innerHTML = "<h3 style='color:red;text-align:center'>Thiếu tham số ?url=</h3>";
+} else {
+    jwplayer("player").setup({
+        file: decodeURIComponent(videoUrl),
+        width: "100%",
+        height: "100%",
+        autostart: true,
+        mute: false,
+        controls: true,
+        stretching: "uniform",
+        primary: "html5",
+        preload: "auto",
+
+        skin: {
+            active: "#ff0000",
+            inactive: "#ffffff",
+            background: "rgba(0,0,0,0.6)"
+        }
+    });
+}
+
+jwplayer().on("ready", function () {
+    const player = jwplayer();
+    document.addEventListener("keydown", e => {
+        if (e.key === "ArrowLeft") {
+            player.seek(player.getPosition() - 10);
+        }
+        if (e.key === "ArrowRight") {
+            player.seek(player.getPosition() + 10);
+        }
+    });
+});
+</script>
+
+</body>
+</html>
