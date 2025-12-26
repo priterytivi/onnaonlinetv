@@ -1,0 +1,111 @@
+<!doctype html>
+
+<html lang="vi">
+
+<head>
+
+<meta charset="utf-8" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>Đồng hồ VTV 2024</title>
+
+<style>
+
+  /* Font Tahoma: dùng sẵn trong Windows, hoặc để file tahoma.ttf cùng thư mục */
+
+  @font-face {
+
+    font-family: "TahomaLocal";
+
+    src: local("Tahoma"), url(".font/tahoma.ttf") format("truetype");
+
+    font-weight: normal;
+
+    font-style: normal;
+
+  }
+
+  html, body {
+
+    margin: 0;
+
+    padding: 0;
+
+    height: 100%;
+
+    background: transparent; /* trong suốt cho OBS */
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+  }
+
+  .clock-box {
+
+    background: rgba(0, 0, 0, 0.75); /* nền đen nhạt, trong suốt 75% */
+
+    padding: 40px 80px;
+
+    border-radius: 35px; /* bo tròn mềm mại */
+
+  }
+
+  .clock {
+
+    color: #dcdcdc; /* xám sáng như hình */
+
+    font-family: "TahomaLocal", "Tahoma", sans-serif;
+
+    font-weight: normal;
+
+    font-size: 180px;
+
+    letter-spacing: 0.05em;
+
+    transform: scaleY(0.80); /* làm dẹt xuống mạnh hơn */
+
+    line-height: 1;
+
+  }
+
+</style>
+
+</head>
+
+<body>
+
+  <div class="clock-box">
+
+    <div class="clock" id="clock">00:00</div>
+
+  </div>
+
+  <script>
+
+    const timeZone = "Asia/Ho_Chi_Minh";
+
+    function updateClock() {
+
+      const now = new Date();
+
+      const options = { hour: '2-digit', minute: '2-digit', hour12: false, timeZone };
+
+      const timeString = new Intl.DateTimeFormat('en-GB', options).format(now);
+
+      document.getElementById('clock').textContent = timeString;
+
+    }
+
+    updateClock();
+
+    setInterval(updateClock, 1000);
+
+  </script>
+
+</body>
+
+</html>
