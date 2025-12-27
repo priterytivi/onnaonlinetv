@@ -13,8 +13,8 @@ https://onnanetwork.xyz/1.org.vn/mbn-plus/?/index.m3u8
 http://live.qphim.xyz/live/kubolive/index.m3u8
 #EXTINF:-1 tvg-id="kubocast" group-title="Truyền Hình" tvg-logo="https://ip1.qphim.xyz/image/kubocast.png", KuboCast
 https://live.qphim.xyz/live/kubocast/index.m3u8
-#EXTINF:-1 tvg-id="onnanetwork" group-title="Truyền Hình" tvg-logo="https://onnaonlinetv.xyz/thumbnail/atvhd.png", ATV HD
-https://server.priterytivi.com/ATVHD/index.m3u8
+#EXTINF:-1 tvg-id="onnanetwork" group-title="Truyền Hình" tvg-logo="https://onnaonlinetv.xyz/thumbnail/ninochannel1.png", Nino Channel 1
+https://onnanetwork.xyz/live.qphim.xyz/hls_nonkey/ninochannel/index.m3u8
 #EXTINF:-1 tvg-id="vtv1hd" group-title="Truyền Hình" tvg-logo="https://onnaonlinetv.xyz/thumbnail/vtv1.png", VTV1
 https://wowza.danet.vn/live/vtv1/chunklist_w1613490240.m3u8
 #EXTINF:-1 tvg-id="vtv2hd" group-title="Truyền Hình" tvg-logo="https://onnaonlinetv.xyz/thumbnail/vtv2.png", VTV2
