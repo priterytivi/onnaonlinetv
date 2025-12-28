@@ -7,8 +7,10 @@
 https://onnanetwork.xyz/live.qphim.xyz/hls_nonkey/oni1/index.m3u8
 #EXTINF:-1 tvg-id="oni2" group-title="Truyền Hình" tvg-logo="https://onnaonlinetv.xyz/thumbnail/oni2.png", ONi2
 https://proxy.liyao.space/d.org.vn/oni2-mbnlife/?/index.m3u8
-#EXTINF:-1 tvg-id="oni2" group-title="Truyền Hình" tvg-logo="https://onnaonlinetv.xyz/thumbnail/mbn.png", MBN+
+#EXTINF:-1 tvg-id="mbnplus" group-title="Truyền Hình" tvg-logo="https://onnaonlinetv.xyz/thumbnail/mbn.png", MBN+
 https://onnanetwork.xyz/1.org.vn/mbn-plus/?/index.m3u8
+#EXTINF:-1 tvg-id="lvtt" group-title="Truyền Hình" tvg-logo="https://onnaonlinetv.xyz/thumbnail/lvtt.png", LVTT
+https://onnanetwork.xyz/live.qphim.xyz:8880/hls_nonkey/lvtt/index.m3u8
 #EXTINF:-1 tvg-id="kubolive" group-title="Truyền Hình" tvg-logo="https://ip1.qphim.xyz/image/kubolive-full.png" catchup-type="append" catchup-days="5" catchup-source="?t=${start}&d=${offset}", KuboLive
 http://live.qphim.xyz/live/kubolive/index.m3u8
 #EXTINF:-1 tvg-id="kubocast" group-title="Truyền Hình" tvg-logo="https://ip1.qphim.xyz/image/kubocast.png", KuboCast
