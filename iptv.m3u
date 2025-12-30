@@ -127,8 +127,5 @@ https://strm.voh.com.vn/radio/channel3/chunklist_w1936699032.m3u8
 #EXTINF:-1 tvg-id="voh610" group-title="Phát Thanh" tvg-logo="https://onnaonlinetv.xyz/thumbnail/voh_am610mhz.png", VOH AM 610 Mhz
 https://strm.voh.com.vn/radio/channel2/chunklist_w558517770.m3u8
 
-#EXTINF:-1 group-title="Trực Tiếp" tvg-logo="https://www.monfansubvn.com/static/img/mfslogo.webp", Mon Fansub
-https://scontent.fhan3-3.fna.fbcdn.net/hvideo-cco-prn/_nc_cat-101/_nc_sr_t-4/v/rASdAsxYJp0F4E4igehdRVBweqpVxE_aHUNLY8USg1WMlIg/_nc_ohc-wChiV0XLruAQ7kNvwFV1733/live-dash/dash-abr-ibr-audio/875003225279451.mpd?_nc_eui2=AeGsPfDz7xrnpJYF0_ihW6XFblmC3gc2Fw1uWYLeBzYXDUccrcFRoVutX7Q850J3phW7u2EEg7Uz-f5gTtwODOYl&_nc_zt=28&ccb=2-4&ms=m_CTPA&sc_t=1&oh=00_AfkAtzSxr7HUDoQnIz9GPfqoxFC2cV4zUsFJFXOQH7cRrg&oe=694869C6
-#EXTINF:-1 group-title="Trực Tiếp" tvg-logo="https://static.wikia.nocookie.net/logopedia/images/e/e1/DandysWorldRecreation.svg/revision/latest?cb=20251017205010", Dandy's World
-https://onnaonlinetv.xyz/vod/capybara.mp4
-
+#EXTINF:-1 tvg-id="ksport1" group-title="Đằng Nào Kênh Sắp Chết Nên Xin Phép Thả Gà Lần Cuối" tvg-logo="https://onnaonlinetv.xyz/thumbnail/kplus_sports1.png", K+ Sport 1
+https://1.org.vn/k-sport1-goodbye/?/index.m3u8
