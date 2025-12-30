@@ -1,100 +1,85 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-<meta charset="UTF-8">
-<title>Player</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<script src="https://live.qphim.xyz/tv/player.js"></script>
-
-<style>
-html, body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-    background: #000;
-}
-
-#player {
-    width: 100%;
-    height: 100vh;
-}
-
-.jw-progress {
-    background-color: #ff0000 !important;
-}
-.jw-buffer {
-    background-color: rgba(255,0,0,0.4) !important;
-}
-.jw-icon-playback,
-.jw-icon-volume,
-.jw-icon-settings,
-.jw-icon-fullscreen {
-    color: #ff0000 !important;
-}
-.jw-icon:hover {
-    color: #ff3b3b !important;
-}
-.jw-controlbar {
-    background: linear-gradient(
-        to top,
-        rgba(0,0,0,0.85),
-        rgba(0,0,0,0.3)
-    ) !important;
-}
-.jw-slider-time {
-    height: 4px !important;
-}
-.jw-logo {
-    display: none !important;
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kubo Network - Xem TV Trực Tuyến</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+    <link href="/tv/netflix.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+    .epg-header,.epg-tabs,.navbar{border-bottom:1px solid var(--border)}.date-tab,.epg-item{transition:.2s;cursor:pointer}.epg-name,body{line-height:1.5}.channel-btn,.date-tab{text-align:center;cursor:pointer}:root{--primary:#e50914;--bg:#0a0a0a;--surface:#141414;--border:#2b2b2b;--text-gray:#888}body{background:var(--bg);color:#fff;font-family:Montserrat,'SF Pro Display',Inter,Roboto,Ubuntu,'Segoe UI','Helvetica Neue',Arial,sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;font-size:14px}.navbar{background:#000;padding:12px 0}.navbar-brand{font-weight:800;color:var(--primary)!important;letter-spacing:-1px}.player-wrapper{position:relative;width:100%;padding-top:56.25%;background:#000;border-radius:12px;overflow:hidden;box-shadow:0 10px 40px rgba(0,0,0,.8);border:1px solid var(--border)}#tv-player,.jwplayer{position:absolute!important;top:0;left:0;width:100%!important;height:100%!important}.epg-container{background:var(--surface);border-radius:12px;border:1px solid var(--border);display:flex;flex-direction:column;height:550px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.3)}@media (min-width:992px){body{font-size:18px}.epg-header{font-size:1.1rem;padding:20px}.date-tab{font-size:.95rem;padding:15px 10px}.epg-item{grid-template-columns:85px 1fr;padding:20px 25px;gap:20px}.epg-time{font-size:1.2rem}.epg-name{font-size:1.05rem}.epg-name .title{line-height:1.6}.live-badge{font-size:.75rem;padding:3px 10px}}.epg-header{flex-shrink:0;background:#1f1f1f;padding:15px;font-weight:700;font-size:.9rem;display:flex;align-items:center}.epg-tabs{flex-shrink:0;display:flex;background:#1a1a1a;padding:8px;gap:8px;overflow-x:auto;scrollbar-width:none}.epg-tabs::-webkit-scrollbar{display:none}.date-tab{flex:1;min-width:90px;padding:10px 5px;font-size:.8rem;font-weight:600;color:var(--text-gray);border-radius:8px}.epg-name,.epg-time,.live-badge{font-size:.9rem}.date-tab:hover{color:#fff;background:#252525}.date-tab.active{background:var(--primary);color:#fff;box-shadow:0 4px 12px rgba(229,9,20,.3)}.epg-list{flex-grow:1;list-style:none;padding:0;margin:0;overflow-y:auto;scroll-behavior:smooth}.epg-list::-webkit-scrollbar{width:5px}.epg-list::-webkit-scrollbar-track{background:0
+0}.epg-list::-webkit-scrollbar-thumb{background:#333;border-radius:10px}.epg-list::-webkit-scrollbar-thumb:hover{background:#444}.epg-item{display:grid;grid-template-columns:65px 1fr;padding:15px;border-bottom:1px solid #222;align-items:center;gap:12px}.epg-item:hover{background:#1f1f1f}.epg-time{font-weight:700;color:var(--primary)}.epg-name{color:#ccc;font-weight:500}.epg-item.active{background:linear-gradient(90deg,rgba(229,9,20,.15) 0,transparent 100%);border-left:4px solid var(--primary)}.epg-item.active .epg-name{color:#fff;font-weight:700}.live-badge{background:var(--primary);padding:2px 8px;border-radius:4px;margin-left:8px;vertical-align:middle;text-transform:uppercase;animation:2s infinite blink}@keyframes blink{0%,100%{opacity:1}50%{opacity:.4}}.channel-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:20px;margin-top:25px;padding-bottom:50px}.channel-btn{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:20px 10px;transition:.3s;display:flex;flex-direction:column;align-items:center;text-decoration:none;color:#fff}.channel-btn:hover{border-color:var(--primary);transform:translateY(-8px);box-shadow:0 10px 25px rgba(229,9,20,.2)}.channel-btn img{width:70px;height:70px;object-fit:contain;margin-bottom:12px;background:#fff;padding:8px;border-radius:14px}.channel-btn span{font-size:.9rem;font-weight:700}.info-box{background:#111;padding:15px;border-radius:12px;border:1px dashed #444;margin-top:15px;font-size:1.4rem}@media (max-width:768px){.channel-grid{grid-template-columns:repeat(2,1fr);gap:12px}.epg-container{height:450px;margin-top:20px}}@media (min-width:1400px){.container{max-width:1450px}}@media (min-width:992px){.epg-col{position:relative}.epg-container{position:absolute;top:0;bottom:0;left:12px;right:12px;height:auto}.channel-grid{grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:30px}.channel-btn{padding:30px 15px}.channel-btn img{width:100px;height:100px;border-radius:20px}.channel-btn span{font-size:1.1rem;margin-top:15px}}.epg-future {opacity: 0.4;pointer-events: none;filter: grayscale(100%);}
+    </style>
 </head>
-
 <body>
 
-<div id="player"></div>
+<nav class="navbar navbar-dark sticky-top">
+    <div class="container">
+        <a class="navbar-brand" href="#"><i class="fa-solid fa-satellite-dish me-2"></i>KUBO NETWORK</a>
+        <div class="text-secondary small d-none d-md-block">IP: <span class="text-white">14.191.11.121</span></div>
+    </div>
+</nav>
 
-<script>
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-lg-8 mb-4">
+            <div class="player-wrapper shadow-lg">
+                <div id="tv-player"></div>
+            </div>
+            <div class="mt-3">
+                <h1 id="channel-name" class="h5 fw-bold mb-1">Đang nạp dữ liệu...</h1>
+                <p id="player-status" class="text-secondary small">
+                    <i class="fa-solid fa-bolt-lightning text-warning me-1"></i> Trực tiếp • Thiết bị: Desktop    </div>
+            <div class="info-box">
+                <span class="text-danger fw-bold"><i class="fa-solid fa-bullhorn"></i> Thông báo:</span> Marathon Anime phát sóng trên KuboLive bắt đầu từ 24/12.
+            </div>
+        </div>
 
-const params = new URLSearchParams(window.location.search);
-const videoUrl = params.get("url");
+        <div class="col-lg-4 epg-col mb-4">
+            <div class="epg-container shadow-sm">
+                <div class="epg-header text-uppercase"><span><i class="fa-solid fa-clock-rotate-left me-2 text-danger"></i>Lịch phát sóng</span></div>
+                <div id="epg-tabs" class="epg-tabs"></div>
+                <ul id="epg-list" class="epg-list"><li class="p-5 text-center text-secondary small">Đang tải lịch...</li></ul>
+            </div>
+        </div>
+    </div>
 
-if (!videoUrl) {
-    document.body.innerHTML = "<h3 style='color:red;text-align:center'>Thiếu tham số ?url=</h3>";
-} else {
-    jwplayer("player").setup({
-        file: decodeURIComponent(videoUrl),
-        width: "100%",
-        height: "100%",
-        autostart: true,
-        mute: false,
-        controls: true,
-        stretching: "uniform",
-        primary: "html5",
-        preload: "auto",
+    <h5 class="fw-bold mb-3 mt-2 text-uppercase">Danh sách kênh</h5>
+    <div class="channel-grid">
+<div class="channel-btn" onclick="loadChannel('KuboLive', 'oKLkA7MVgaBXPsof29qYxRqCd04ug6HXmhW1lIZBOgagBzM/jl6nNfWzFidiIzE=', '/kubolive_epg.json', false, '', true, true)">
+    <img src="/img.php?source=https://ip1.qphim.xyz/image/kubolive-full.png&w=90&e=webp"><span>KuboLive</span>
+</div>
 
-        skin: {
-            active: "#ff0000",
-            inactive: "#ffffff",
-            background: "rgba(0,0,0,0.6)"
-        }
-    });
-}
+<div class="channel-btn" onclick="loadChannel('KuboCast', 'oKLkA7MVgaBXPsof29qYxRqCd04ug6HXmhW1lIZBOgavDzYujl6nNfWzFidiIzE=', '/kubocast_epg.json', false, '', true, false)">
+    <img src="/img.php?source=https://ip1.qphim.xyz/image/kubocast.png&w=90&e=webp"><span>KuboCast</span>
+</div>
 
-jwplayer().on("ready", function () {
-    const player = jwplayer();
-    document.addEventListener("keydown", e => {
-        if (e.key === "ArrowLeft") {
-            player.seek(player.getPosition() - 10);
-        }
-        if (e.key === "ArrowRight") {
-            player.seek(player.getPosition() + 10);
-        }
-    });
-});
-</script>
+<div class="channel-btn" onclick="loadChannel('VTV1', 'oKLkA7MVgaBYM9JXmcKeyOkUWjKrOWLWLXfDVgZbeG+sxLepFC1UmK6igIB3DAyadbwUX36TRgrp8H4pQlllz4MVmG828WPT+wodmUpiPA==', '/epg_v2.php?id=2&date=', true, '2', true, false)">
+    <img src="/img.php?source=https://ip1.qphim.xyz/image/1.png&w=90&e=webp"><span>VTV1</span>
+</div>
 
-</body>
-</html>
+<div class="channel-btn" onclick="loadChannel('VTV2', 'oKLkA7MVgaBYM9JXmcKeyOkUWjKrOWLWfmTvczU4CwjAHh3IRh42/6lqhEO1akGBZ+Ru93E8WauWSGPoP7i1zxLTSEpSW/voX040gNbayw==', '/epg_v2.php?id=3&date=', true, '3', true, false)">
+    <img src="/img.php?source=https://ip1.qphim.xyz/image/2.png&w=90&e=webp"><span>VTV2</span>
+</div>
+
+<div class="channel-btn" onclick="loadChannel('VTV3', 'oKLkA7MVgaBYM9JXmcKeyOkUWjKrOWLWWVvld3kYJh2kc/D2L/jdWSsnqUdRbwoH7NNsWYMqOL90nXEQT1VZDm4BpWWcRldG//qESKwznw==', '/epg_v2.php?id=4&date=', true, '4', true, false)">
+    <img src="/img.php?source=https://ip1.qphim.xyz/image/3.png&w=90&e=webp"><span>VTV3</span>
+</div>
+
+<div class="channel-btn" onclick="loadChannel('Vietnam Today', 'oKLkA7MVgaBNI8odmseB2xTKXiLtEkYe9ZJu9z+xMnrBYEcAOwwmAtvGa3TNRXJRTlxYpMdAXELtoPrtjJA8MZ8bQgc190YbFEG+kMLX9dl5xLt1ctSrXDstwq5usnTOxt1xKKbQmglLy3PF7QA=', '/epg_v2.php?id=9951&date=', true, '9951', true, false)">
+    <img src="/img.php?source=https://ip1.qphim.xyz/image/176.png?v1&w=90&e=webp"><span>Vietnam Today</span>
+</div>         
+    </p>
+        <div class="channel-btn" onclick="loadChannel('VTV4', 'oKLkA7MVgaBdOJESmcjG2coCtC1t0opqhplDKq2DshElprGFIAnVt47KadFHkIYco6DMOfqdvsfwaGLHoTScG5yEt2B+472+e8YyIoN261um4N/Zdo1l4Ooe28W7fnNOWvEP4+6NUHLbGV5cAgyBuTM02nONOSPhQr0zi3dGUz32FoiKTsJC4G1lLHcFVYK1C5lamrOtIjBzibVrfuR/VOdVFmiIHkvCK7Xdbz7zonEzST2R9O09N2tXfHcp1e23AufJib0vE4Y/EwguynaRUGT8na6Hzw67CMsDTNFWkz0/IXo+oTA07hmefg/S4znY3ZD2dyT2pF4N43fPiUt66Ok=', '/epg_v2.php?id=108&date=', true, '108', true, false)">
+    <img src="/img.php?source=https://ip1.qphim.xyz/image/4.png&w=90&e=webp"><span>VTV4</span>
+</div>
+
+<div class="channel-btn" onclick="loadChannel('VTV Cần Thơ', 'oKLkA7MVgaBJJY1XlN+NwMkBXy1vYmcL4uA37+G2m9xfMKj083GEfBoep0ZHpQ+ilIdUuKBxnrmQcht0NsTyhOKoQuGkWk7T8IDt9zCI0ZwnMQQ6N76DoVbqEuG5eoWo1tjmR20fo8fQ5XtyKW0jeGLIPcpby4GSGQDkIu5TNCVpD1srK8PzZ4RsBFKyElaTwR0c2qE0nxLyE+bB5do5l5aKEn1oI081ZJ9+Vwn3OXC/6JWxoWHscwjKHlet9z8+9PRkIwluLlmjbLe4GIAO7zBgcM426cnfmmkebJjz8CYmXgnXLVXfFySApB3zOxTEcrPu2uwgKjWBYysGkjfUmTQz2LGnmdOURHD9oyY3zIo54+qQaqt8FYJvaNotvdHWr32kzYo=', '/epg_v2.php?id=98&date=', true, '98', true, false)">
+    <img src="/img.php?source=https://ip1.qphim.xyz/image/8.png&w=90&e=webp"><span>VTV Cần Thơ</span>
+</div>
+
+<div class="channel-btn" onclick="loadChannel('K+ CINE', 'oKLkA7MVgaBIYIxJw4WLyYQroMDRwvzQrqK
