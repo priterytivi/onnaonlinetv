@@ -127,13 +127,3 @@ https://strm.voh.com.vn/radio/channel3/chunklist_w1936699032.m3u8
 #EXTINF:-1 tvg-id="voh610" group-title="Phát Thanh" tvg-logo="https://onnaonlinetv.xyz/thumbnail/voh_am610mhz.png", VOH AM 610 Mhz
 https://strm.voh.com.vn/radio/channel2/chunklist_w558517770.m3u8
 
-#EXTINF:-1 tvg-id="ksport1hd" group-title="Đằng Nào Kênh Sắp Chết Nên Xin Phép Thả Gà Lần Cuối" tvg-logo="https://onnaonlinetv.xyz/thumbnail/kplus_sports1.png", K+ Sport 1
-https://1.org.vn/k-sport1-goodbye
-#EXTINF:-1 tvg-id="ksport2hd" group-title="Đằng Nào Kênh Sắp Chết Nên Xin Phép Thả Gà Lần Cuối" tvg-logo="https://onnaonlinetv.xyz/thumbnail/kplus_sports2.png", K+ Sport 2
-https://1.org.vn/k-sport2-goodbye
-#EXTINF:-1 tvg-id="kcinehd" group-title="Đằng Nào Kênh Sắp Chết Nên Xin Phép Thả Gà Lần Cuối" tvg-logo="https://onnaonlinetv.xyz/thumbnail/kplus_cine.png", K+ Cine
-https://1.org.vn/k-cine-goodbye
-#EXTINF:-1 tvg-id="kactionhd" group-title="Đằng Nào Kênh Sắp Chết Nên Xin Phép Thả Gà Lần Cuối" tvg-logo="https://onnaonlinetv.xyz/thumbnail/kplus_action.png", K+ Action
-https://1.org.vn/k-action-goodbye
-#EXTINF:-1 tvg-id="kkidshd" group-title="Đằng Nào Kênh Sắp Chết Nên Xin Phép Thả Gà Lần Cuối" tvg-logo="https://onnaonlinetv.xyz/thumbnail/kplus_kids.png", K+ Kids
-https://1.org.vn/k-kids-goodbye
