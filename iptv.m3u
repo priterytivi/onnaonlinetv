@@ -9,6 +9,8 @@ https://onnanetwork.xyz/live.qphim.xyz/hls_nonkey/oni1/index.m3u8
 https://onnanetwork.xyz/live.qphim.xyz/hls_nonkey/oni2/index.m3u8
 #EXTINF:-1 tvg-id="mbnplus" group-title="Truyền Hình" tvg-logo="https://onnaonlinetv.xyz/thumbnail/mbn.png", MBN+
 https://onnanetwork.xyz/1.org.vn/mbn-plus/?/index.m3u8
+#EXTINF:-1 tvg-id="kpt" group-title="Truyền Hình" tvg-logo="https://onnaonlinetv.xyz/thumbnail/kpt.png", KPT
+https://onnanetwork.xyz/160.22.122.248:9001/khangpham/index.m3u8
 #EXTINF:-1 tvg-id="lvtt" group-title="Truyền Hình" tvg-logo="https://onnaonlinetv.xyz/thumbnail/lvtt.png", LVTT
 https://onnanetwork.xyz/live.qphim.xyz:8880/hls_nonkey/lvtt/index.m3u8
 #EXTINF:-1 tvg-id="kubolive" group-title="Truyền Hình" tvg-logo="https://ip1.qphim.xyz/image/kubolive-full.png" catchup-type="append" catchup-days="5" catchup-source="?t=${start}&d=${offset}", KuboLive
