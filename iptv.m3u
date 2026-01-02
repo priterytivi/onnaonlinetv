@@ -10,7 +10,7 @@ https://onnanetwork.xyz/live.qphim.xyz/hls_nonkey/oni2/index.m3u8
 #EXTINF:-1 tvg-id="oni3" group-title="Truyền Hình" tvg-logo="https://onnaonlinetv.xyz/thumbnail/oni3.png", ONi3
 https://onnanetwork.xyz/live.qphim.xyz/hls_nonkey/oni3/index.m3u8
 #EXTINF:-1 tvg-id="mbnplus" group-title="Truyền Hình" tvg-logo="https://onnaonlinetv.xyz/thumbnail/mbn.png", MBN+
-https://onnanetwork.xyz/1.org.vn/mbn-plus/?/index.m3u8
+https://onnanetwork.xyz/live.qphim.xyz/hls_nonkey/mbnplus/index.m3u8
 #EXTINF:-1 tvg-id="kpt" group-title="Truyền Hình" tvg-logo="https://onnaonlinetv.xyz/thumbnail/kpt.png", KPT
 https://onnanetwork.xyz/160.22.122.248:9001/khangpham/index.m3u8
 #EXTINF:-1 tvg-id="lvtt" group-title="Truyền Hình" tvg-logo="https://onnaonlinetv.xyz/thumbnail/lvtt.png", LVTT
