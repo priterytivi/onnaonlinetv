@@ -4,17 +4,17 @@
 #Info: Địt con mẹ bọn spam comment sao đơn
 
 #EXTINF:-1 tvg-id="oni1" group-title="Truyền Hình" tvg-logo="https://onnaonlinetv.xyz/thumbnail/oni1.png", ONi1
-https://onnanetwork.xyz/live.qphim.xyz/hls_nonkey/oni1/index.m3u8
+https://onnanetwork.xyz/live.qphim.xyz:8880/hls_nonkey/oni1/index.m3u8
 #EXTINF:-1 tvg-id="oni2" group-title="Truyền Hình" tvg-logo="https://onnaonlinetv.xyz/thumbnail/oni2.png", ONi2
-https://onnanetwork.xyz/live.qphim.xyz/hls_nonkey/oni2/index.m3u8
+https://onnanetwork.xyz/live.qphim.xyz:8880/hls_nonkey/oni2/index.m3u8
 #EXTINF:-1 tvg-id="oni3" group-title="Truyền Hình" tvg-logo="https://onnaonlinetv.xyz/thumbnail/oni3.png", ONi3
-https://onnanetwork.xyz/live.qphim.xyz/hls_nonkey/oni3/index.m3u8
+https://onnanetwork.xyz/live.qphim.xyz:8880/hls_nonkey/oni3/index.m3u8
 #EXTINF:-1 tvg-id="oni4" group-title="Truyền Hình" tvg-logo="https://onnaonlinetv.xyz/thumbnail/oni4.png", ONi4
-https://onnanetwork.xyz/live.qphim.xyz/hls_nonkey/oni4/index.m3u8
+https://onnanetwork.xyz/live.qphim.xyz:8880/hls_nonkey/oni4/index.m3u8
 #EXTINF:-1 tvg-id="oni7" group-title="Truyền Hình" tvg-logo="https://onnaonlinetv.xyz/thumbnail/oni7.png", ONi7
-https://onnanetwork.xyz/live.qphim.xyz/hls_nonkey/oni7/index.m3u8
+https://onnanetwork.xyz/live.qphim.xyz:8880/hls_nonkey/oni7/index.m3u8
 #EXTINF:-1 tvg-id="mbnplus" group-title="Truyền Hình" tvg-logo="https://onnaonlinetv.xyz/thumbnail/mbn.png", MBN+
-https://onnanetwork.xyz/live.qphim.xyz/hls_nonkey/mbnplus/index.m3u8
+https://onnanetwork.xyz/live.qphim.xyz:8880/hls_nonkey/mbnplus/index.m3u8
 #EXTINF:-1 tvg-id="kpt" group-title="Truyền Hình" tvg-logo="https://onnaonlinetv.xyz/thumbnail/kpt.png", KPT
 https://onnanetwork.xyz/160.22.122.248:9001/khangpham/index.m3u8
 #EXTINF:-1 tvg-id="lvtt" group-title="Truyền Hình" tvg-logo="https://onnaonlinetv.xyz/thumbnail/lvtt.png", LVTT
@@ -24,7 +24,7 @@ https://live.qphim.xyz/live/kubolive/index.m3u8
 #EXTINF:-1 tvg-id="kubocast" group-title="Truyền Hình" tvg-logo="https://ip1.qphim.xyz/image/kubocast.png", KuboCast
 https://live.qphim.xyz/live/kubocast/index.m3u8
 #EXTINF:-1 tvg-id="onnanetwork" group-title="Truyền Hình" tvg-logo="https://onnaonlinetv.xyz/thumbnail/ninochannel1.png", Nino Channel 1
-https://onnanetwork.xyz/live.qphim.xyz/hls_nonkey/ninochannel/index.m3u8
+https://onnanetwork.xyz/live.qphim.xyz:8880/hls_nonkey/ninochannel/index.m3u8
 #EXTINF:-1 tvg-id="vtv1hd" group-title="Truyền Hình" tvg-logo="https://onnaonlinetv.xyz/thumbnail/vtv1.png", VTV1
 https://wowza.danet.vn/live/vtv1/index.m3u8
 #EXTINF:-1 tvg-id="vtv2hd" group-title="Truyền Hình" tvg-logo="https://onnaonlinetv.xyz/thumbnail/vtv2.png", VTV2
