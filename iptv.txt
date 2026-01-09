@@ -1,7 +1,9 @@
 #EXTM3U x-tvg-url="https://vnepg.site/epg.xml"
 
 #List IPTV cơ bản của ONNA Online, hoạt động đồng bộ với website và ứng dụng, tất cả các kênh truyền hình trong List IPTV này được tổng hợp lại từ các nguồn bên thứ ba được chia sẻ trên mạng và cam kết 100% không thu phí người xem
-#Info: Địt con mẹ bọn spam comment sao đơn
+#Info: Địt mẹ thằng súc vật tô hiệu
+https://www.tiktok.com/@ngygiahuy1?_r=1&_t=ZS-92vmybIDABc
+https://www.facebook.com/share/1D3frCTKrh/
 
 #EXTINF:-1 tvg-id="oni1" group-title="Truyền Hình" tvg-logo="https://onnaonlinetv.xyz/thumbnail/oni1.png", ONi1
 https://onnanetwork.xyz/live.qphim.xyz:8880/hls_nonkey/oni1/index.m3u8
