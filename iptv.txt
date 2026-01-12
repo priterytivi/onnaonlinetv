@@ -114,7 +114,7 @@ https://onnanetwork.xyz/tv.angiangtv.vn/live/kgtv1/kgtv1.m3u8
 #EXTINF:-1 tvg-id="quangngai" group-title="Truyền Hình" tvg-logo="https://raw.githubusercontent.com/vuminhthanh12/vuminhthanh12/refs/heads/main/QNgTV1_QuangNgai.png", QNgTV1
 https://onnanetwork.xyz/live.mediatech.vn/live/285aaa79b4b265a457d81bb72bc32e2c114/chunklist.m3u8
 #EXTINF:-1 tvg-id="quangngai" group-title="Truyền Hình" tvg-logo="https://raw.githubusercontent.com/vuminhthanh12/vuminhthanh12/refs/heads/main/QNgTV2_QuangNgai.png", QNgTV2
-https://onnanetwork.xyz/live.qphim.xyz/hls_nonkey/oni2/index.m3u8
+https://onnanetwork.xyz/live.qphim.xyz:8880/hls_nonkey/qngtv2/index.m3u8
 #EXTINF:-1 tvg-id="bacninh" group-title="Truyền Hình" tvg-logo="https://onnaonlinetv.xyz/thumbnail/bacninhtv.png", Bắc Ninh
 https://cmcdp2.vtvdigital.vn/hls/BACGIANGTV/index.m3u8
 #EXTINF:-1 tvg-id="camau" group-title="Truyền Hình" tvg-logo="https://onnaonlinetv.xyz/thumbnail/camautv.png", Cà Mau
