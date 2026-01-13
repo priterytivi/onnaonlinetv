@@ -144,6 +144,10 @@ https://strm.voh.com.vn/radio/channel1/chunklist_w1203304311.m3u8
 https://strm.voh.com.vn/radio/channel3/chunklist_w1936699032.m3u8
 #EXTINF:-1 tvg-id="voh610" group-title="Phát Thanh" tvg-logo="https://onnaonlinetv.xyz/thumbnail/voh_am610mhz.png", VOH AM 610 Mhz
 https://strm.voh.com.vn/radio/channel2/chunklist_w558517770.m3u8
+#EXTINF:-1 tvg-id="hanoi90" group-title="Phát Thanh" tvg-logo="https://onnaonlinetv.xyz/thumbnail/fm90.png", Hanoi FM 90
+https://cloudcdnfm90.tek4tv.vn/HANOIFM90/stream.m3u8
+#EXTINF:-1 tvg-id="hanoi96" group-title="Phát Thanh" tvg-logo="https://onnaonlinetv.xyz/thumbnail/fm96.png", Hanoi FM 96 
+https://cloudcdnfm90.tek4tv.vn/HANOI96/stream.m3u8
 
 #EXTINF:-1 tvg-id="onfootball" group-title="Test" tvg-logo="", Test
 https://onnanetwork.xyz/onnaonlinetv.xyz/live/vtv16-ditmebonspamsaodon/index.m3u8
