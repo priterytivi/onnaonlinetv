@@ -123,6 +123,8 @@ https://onnanetwork.xyz/tv.ctvcamau.vn/live/tv/tv.m3u8
 https://truyenhinh.vnptvas.vn/live.m3u8?c=vstv362&q=high&pkg=pkg11.hni
 #EXTINF:-1 tvg-id="daklak" group-title="Truyền Hình" tvg-logo="https://onnaonlinetv.xyz/thumbnail/daklak.png", Đắk Lắk
 https://onnanetwork.xyz/live.mediatech.vn/live/285a27750861b964c27af22091662a74f2f/playlist.m3u8
+#EXTINF:-1 tvg-id="thanhhoa" group-title="Truyền Hình" tvg-logo="https://onnaonlinetv.xyz/thumbnail/thanhhoa.png", Thanh Hoá
+https://liveh12.seenow.vn/hls/THANHHOATV/index.m3u8
 
 #EXTINF:-1 tvg-id="vov1" group-title="Phát Thanh" tvg-logo="https://onnaonlinetv.xyz/thumbnail/vov1.png", VOV1
 https://str.vov.gov.vn/vovlive/vov1vov5Vietnamese.sdp_aac/chunklist_w1111402987.m3u8
