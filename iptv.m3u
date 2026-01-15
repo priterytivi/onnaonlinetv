@@ -13,6 +13,8 @@ https://onnanetwork.xyz/live.qphim.xyz:8880/hls_nonkey/oni2/index.m3u8
 https://onnanetwork.xyz/live.qphim.xyz:8880/hls_nonkey/oni3/index.m3u8
 #EXTINF:-1 tvg-id="oni4" group-title="Truyền Hình" tvg-logo="https://onnaonlinetv.xyz/thumbnail/oni4.png", ONi4
 https://onnanetwork.xyz/live.qphim.xyz:8880/hls_nonkey/oni4/index.m3u8
+#EXTINF:-1 tvg-id="oni5" group-title="Truyền Hình" tvg-logo="https://onnaonlinetv.xyz/thumbnail/oni5.png", ONi5
+https://onnanetwork.xyz/live.qphim.xyz:8880/hls_nonkey/oni5/index.m3u8
 #EXTINF:-1 tvg-id="oni6" group-title="Truyền Hình" tvg-logo="https://onnaonlinetv.xyz/thumbnail/oni6.png", ONi6
 https://onnanetwork.xyz/live.qphim.xyz:8880/hls_nonkey/oni6/index.m3u8
 #EXTINF:-1 tvg-id="oni7" group-title="Truyền Hình" tvg-logo="https://onnaonlinetv.xyz/thumbnail/oni7.png", ONi7
