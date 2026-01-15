@@ -151,6 +151,8 @@ https://cloudcdnfm90.tek4tv.vn/HANOIFM90/stream.m3u8
 #EXTINF:-1 tvg-id="hanoi96" group-title="Phát Thanh" tvg-logo="https://onnaonlinetv.xyz/thumbnail/fm96.png", Hanoi FM 96 
 https://cloudcdnfm90.tek4tv.vn/HANOI96/stream.m3u8
 
-#EXTINF:-1 tvg-id="onfootball" group-title="Test" tvg-logo="", Test
-https://onnanetwork.xyz/onnaonlinetv.xyz/live/vtv16-ditmebonspamsaodon/index.m3u8
+#EXTINF:-1 tvg-id="takopi" group-title="Kho Phim Anime" tvg-logo="https://i.ibb.co/6RKNPZCt/MV5-BYm-Rk-N2-I1-OGEt-OWM3-Yi00-Nj-Vi-LWJj-MDkt-YTNm-ZTMx-Yj-Bi-NTU3-Xk-Ey-Xk-Fqc-Gc-V1-FMjpg-UX1000.jpg", Nguyên Tội Của Takopi - Tập 01 (Lồng Tiếng Việt)
+https://rumble.com/hls-vod/71meok/playlist.m3u8
+#EXTINF:-1 tvg-id="takopi" group-title="Kho Phim Anime" tvg-logo="https://i.ibb.co/6RKNPZCt/MV5-BYm-Rk-N2-I1-OGEt-OWM3-Yi00-Nj-Vi-LWJj-MDkt-YTNm-ZTMx-Yj-Bi-NTU3-Xk-Ey-Xk-Fqc-Gc-V1-FMjpg-UX1000.jpg", Nguyên Tội Của Takopi - Tập 02 (Lồng Tiếng Việt)
+https://rumble.com/hls-vod/725vdc/playlist.m3u8
 
