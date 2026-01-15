@@ -372,7 +372,7 @@ http_response_code(200);
 
     async function loadM3U() {
 
-      const res = await fetch("/iptv.txt");
+      const res = await fetch("/iptv.m3u");
 
       const text = await res.text();
 
