@@ -114,7 +114,8 @@
     }
   </style></head>
 <body><div class="container">  <!-- Player -->  <div class="player-wrap">
-    <div id="player"></div>
+    <video id="player" class="video-js vjs-default-skin" controls playsinline></video>
+  </div>
   </div>  <!-- Tabs (CHỈ 2 NÚT) -->  <div class="tabs">
     <div class="tab active" id="tab-tv">Truyền Hình</div>
     <div class="tab" id="tab-epg">Lịch Phát Sóng</div>
@@ -123,96 +124,87 @@
     <div class="grid" id="tv-channels"></div><div class="section-title">Phát Thanh</div>
 <div class="grid" id="radio-channels"></div>
 
-  </div>  <!-- EPG -->  <div class="epg" id="epg-section"></div></div><script src="https://vjs.zencdn.net/7.21.1/video.min.js"></script><script>
-  const IPTV_URL = '/iptv.m3u';
+  </div>  <!-- EPG -->  <div class="epg" id="epg-section"></div></div><link href="https://vjs.zencdn.net/8.10.0/video-js.css" rel="stylesheet" />
+<script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
+<script>
+  const IPTV_URL = 'https://onnaonlinetv.xyz/iptv.m3u';const tvGrid = document.getElementById('tv-channels'); const radioGrid = document.getElementById('radio-channels'); const epgSection = document.getElementById('epg-section');
 
-  const tvGrid = document.getElementById('tv-channels');
-  const radioGrid = document.getElementById('radio-channels');
-  const epgSection = document.getElementById('epg-section');
+const tabTV = document.getElementById('tab-tv'); const tabEPG = document.getElementById('tab-epg');
 
-  const tabTV = document.getElementById('tab-tv');
-  const tabEPG = document.getElementById('tab-epg');
+let channels = []; let player = videojs('player', { autoplay: true, controls: true, preload: 'auto' });
 
-  let channels = [];
-  let player = null;
+async function loadIPTV() { const res = await fetch(IPTV_URL); const text = await res.text(); parseM3U(text); renderChannels(); if (channels[0]) playChannel(channels[0].url); }
 
-  async function loadIPTV() {
-    const res = await fetch(IPTV_URL);
-    const text = await res.text();
-    parseM3U(text);
-    renderChannels();
-    if (channels[0]) playChannel(channels[0].url);
+function parseM3U(data) { const lines = data.split(' '); let current = null;
+
+lines.forEach(line => {
+  if (line.startsWith('#EXTINF')) {
+    current = {
+      name: line.split(',').pop().trim(),
+      logo: (line.match(/tvg-logo="(.*?)"/) || [])[1],
+      group: (line.match(/group-title="(.*?)"/) || [])[1],
+      viewers: Math.floor(Math.random() * 300) + 1
+    };
+  } else if (current && line.startsWith('http')) {
+    current.url = line.trim();
+    channels.push(current);
+    current = null;
   }
+});
 
-  function parseM3U(data) {
-    const lines = data.split('
-');
-    let current = null;
+}
 
-    lines.forEach(line => {
-      if (line.startsWith('#EXTINF')) {
-        current = {
-          name: line.split(',').pop().trim(),
-          logo: (line.match(/tvg-logo="(.*?)"/) || [])[1],
-          group: (line.match(/group-title="(.*?)"/) || [])[1],
-          viewers: Math.floor(Math.random() * 300) + 1
-        };
-      } else if (current && line.startsWith('http')) {
-        current.url = line.trim();
-        channels.push(current);
-        current = null;
-      }
-    });
-  }
+function playChannel(url) { if (!url) return;
 
-  function playChannel(url) {
-    if (!url) return;
-    if (!player) {
-      player = new Playerjs({ id: 'player', file: url });
-    } else {
-      player.api('play', url);
-    }
-  }
+player.src({
+  src: url,
+  type: 'application/x-mpegURL'
+});
+player.play();
 
-  function renderChannels() {
-    tvGrid.innerHTML = '';
-    radioGrid.innerHTML = '';
+// Tự động cuộn lên đầu trang khi chọn kênh
+window.scrollTo({ top: 0, behavior: 'smooth' });
 
-    channels.forEach(ch => {
-      if (!ch.group || !ch.name) return;
+}); } else { player.api('play', url); } }
 
-      const g = ch.group.toLowerCase();
-      if (!g.includes('tv') && !g.includes('radio')) return;
+function renderChannels() { tvGrid.innerHTML = ''; radioGrid.innerHTML = '';
 
-      const card = document.createElement('div');
-      card.className = 'card';
-      card.innerHTML = `
-        <img src="${ch.logo || 'https://via.placeholder.com/300x170?text=No+Logo'}">
-        <div class="views">👁 ${ch.viewers}</div>
-        <div class="info">${ch.name}</div>
-      `;
-      card.onclick = () => playChannel(ch.url);
+channels.forEach(ch => {
+  if (!ch.group || !ch.name || !ch.url) return;
 
-      if (g.includes('radio')) radioGrid.appendChild(card);
-      else tvGrid.appendChild(card);
-    });
-  }
+  const g = ch.group.toLowerCase();
 
-  tabTV.onclick = () => {
-    tabTV.classList.add('active');
-    tabEPG.classList.remove('active');
-    document.getElementById('tv-section').style.display = 'block';
-    epgSection.style.display = 'none';
-  };
+  const isTV = g.includes('tv') || g.includes('truyền hình');
+  const isRadio = g.includes('radio') || g.includes('phát thanh');
 
-  tabEPG.onclick = () => {
-    tabEPG.classList.add('active');
-    tabTV.classList.remove('active');
-    document.getElementById('tv-section').style.display = 'none';
-    epgSection.style.display = 'block';
-    epgSection.innerHTML = '<div class="epg-item">Chưa tích hợp EPG XMLTV</div>';
-  };
+  if (!isTV && !isRadio) return;
 
-  loadIPTV();
-</script></body>
+  const card = document.createElement('div');
+  card.className = 'card';
+  card.innerHTML = `
+    <img src="${ch.logo || 'https://via.placeholder.com/300x170?text=No+Logo'}">
+    <div class="views">👁 ${ch.viewers}</div>
+    <div class="info">${ch.name}</div>
+  `;
+  card.onclick = () => playChannel(ch.url);
+
+  if (isRadio) radioGrid.appendChild(card);
+  else tvGrid.appendChild(card);
+});
+
+}"> <div class="views">👁 ${ch.viewers}</div> <div class="info">${ch.name}</div> `; card.onclick = () => playChannel(ch.url);
+
+if (g.includes('radio')) radioGrid.appendChild(card);
+  else tvGrid.appendChild(card);
+});
+
+}
+
+tabTV.onclick = () => { tabTV.classList.add('active'); tabEPG.classList.remove('active'); document.getElementById('tv-section').style.display = 'block'; epgSection.style.display = 'none'; };
+
+tabEPG.onclick = () => { tabEPG.classList.add('active'); tabTV.classList.remove('active'); document.getElementById('tv-section').style.display = 'none'; epgSection.style.display = 'block'; epgSection.innerHTML = '<div class="epg-item">EPG sẽ hiển thị khi có XMLTV tương ứng với list IPTV</div>'; };
+
+loadIPTV(); </script>
+
+</body>
 </html>
