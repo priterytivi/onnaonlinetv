@@ -49,21 +49,26 @@
 
     /* Search */
     .search {
-      margin: 12px 0 8px;
+      margin: 12px auto 8px;
+      max-width: 100%;
     }
 
     .search input {
       width: 100%;
-      padding: 10px;
-      border-radius: 12px;
+      max-width: 100%;
+      padding: 12px 14px;
+      font-size: 15px;
+      border-radius: 14px;
       border: none;
       outline: none;
+      box-sizing: border-box;
     }
 
     /* Tabs */
     .tabs {
       display: flex;
       gap: 10px;
+      width: 100%;
       margin-bottom: 12px;
     }
 
@@ -151,10 +156,10 @@
     }
   </script>  <div class="container"><!-- Player -->
 <div class="player-wrap">
-  <div id="jwplayer"></div>
+  <div id="player"></div>
 </div>
 
-<!-- Search + Tabs wrapper -->
+<!-- Search + Tabs -->
 <div class="control-wrap">
   <div class="search">
     <input type="text" id="search" placeholder="Tìm kiếm kênh..." />
@@ -162,13 +167,11 @@
 
   <div class="tabs">
     <div class="tab active" id="tab-tv">Truyền Hình</div>
-    <div class="tab" id="tab-radio">Phát Thanh</div>
+    <div class="tab" id="tab-epg">Lịch Phát Sóng</div>
   </div>
     <div class="tab" id="tab-epg">Lịch Phát Sóng</div>
   </div>
 </div>
-
-<!-- Tabs -->
 <div class="tabs">
   <div class="tab active" id="tab-tv">Truyền Hình</div>
   <div class="tab" id="tab-epg">Lịch Phát Sóng</div>
@@ -186,7 +189,7 @@
 <!-- EPG -->
 <div class="epg" id="epg-section"></div>
 
-  </div><script src="https://cdn.jwplayer.com/libraries/XXXXXXXX.js"></script><script>
+  </div><script src="<script src="https://onnaonlinetv.xyz/playerjs.js"></script><script>
   const IPTV_URL = 'https://onnaonlinetv.xyz/iptv.m3u';
 
   const tvGrid = document.getElementById('tv-channels');
@@ -194,7 +197,7 @@
   const epgSection = document.getElementById('epg-section');
 
   let channels = [];
-  let player = jwplayer('jwplayer');
+  let player;
 
   let channels = [];
 
@@ -244,11 +247,17 @@
   }
 
   function playChannel(url) {
-    player.setup({
-      file: url,
-      width: '100%',
-      aspectratio: '16:9'
-    });
+    if (!url || !url.startsWith('http')) return;
+    if (!player) {
+      player = new Playerjs({
+        id: 'player',
+        file: url
+      });
+    } else {
+      player.api('play', url);
+    }
+  });
+  });
   }
 
   function renderChannels(list) {
@@ -256,13 +265,25 @@
     radioGrid.innerHTML = '';
 
     list.forEach(ch => {
-      // Ẩn hoàn toàn kênh KHÔNG có group-title
-      if (!ch.group) return;
+      // Ẩn kênh không có group-title hoặc logo/name lỗi
+      if (!ch.group || !ch.name) return;
 
       const card = document.createElement('div');
       card.className = 'card';
       card.innerHTML = `
-        <img src="${ch.logo || 'https://via.placeholder.com/300x170'}">
+        <img src="${ch.logo || 'https://via.placeholder.com/300x170?text=No+Logo'}" loading="lazy">
+        <div class="views">👁 ${ch.viewers}</div>
+        <div class="info">${ch.name}</div>`;
+
+      card.onclick = () => playChannel(ch.url);
+
+      if (ch.group.toLowerCase().includes('tv')) {
+        tvGrid.appendChild(card);
+      } else if (ch.group.toLowerCase().includes('tv')) {
+        tvGrid.appendChild(card);
+      }
+    });
+  }">
         <div class="views">👁 ${ch.viewers}</div>
         <div class="info">${ch.name}</div>`;
 
@@ -305,20 +326,13 @@
   });
 
   const tabTV = document.getElementById('tab-tv');
-  const tabRadio = document.getElementById('tab-radio');
+  const tabEPG = document.getElementById('tab-epg');
 
   tabTV.onclick = () => {
     tabTV.classList.add('active');
-    tabRadio.classList.remove('active');
+    tabEPG.classList.remove('active');
     document.getElementById('tv-section').style.display = 'block';
-    document.getElementById('radio-channels').style.display = 'grid';
-  };
-
-  tabRadio.onclick = () => {
-    tabRadio.classList.add('active');
-    tabTV.classList.remove('active');
-    document.getElementById('tv-section').style.display = 'none';
-    document.getElementById('radio-channels').style.display = 'grid';
+    epgSection.style.display = 'none';
   };
 
   tabEPG.onclick = () => {
@@ -326,9 +340,5 @@
     tabTV.classList.remove('active');
     document.getElementById('tv-section').style.display = 'none';
     epgSection.style.display = 'block';
-    epgSection.innerHTML = '<div class="epg-item">EPG sẽ hiển thị khi tích hợp XMLTV</div>';
+    epgSection.innerHTML = '<div class="epg-item">Lịch phát sóng sẽ hiển thị khi tích hợp XMLTV</div>';
   };
-
-  loadIPTV();
-</script></body>
-</html>
