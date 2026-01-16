@@ -18,13 +18,15 @@
     }
 
     .container {
-      max-width: 1200px;
+      max-width: 1100px;
       margin: auto;
       padding: 12px;
     }
 
     .control-wrap {
       width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
     }
       max-width: 1200px;
       margin: auto;
@@ -149,7 +151,7 @@
     }
   </script>  <div class="container"><!-- Player -->
 <div class="player-wrap">
-  <iframe id="player" allowfullscreen></iframe>
+  <div id="jwplayer"></div>
 </div>
 
 <!-- Search + Tabs wrapper -->
@@ -160,6 +162,8 @@
 
   <div class="tabs">
     <div class="tab active" id="tab-tv">Truyền Hình</div>
+    <div class="tab" id="tab-radio">Phát Thanh</div>
+  </div>
     <div class="tab" id="tab-epg">Lịch Phát Sóng</div>
   </div>
 </div>
@@ -182,14 +186,15 @@
 <!-- EPG -->
 <div class="epg" id="epg-section"></div>
 
-  </div><script>
-  const IPTV_URL = '/iptv.m3u';
-  const JW_BASE = '/jw/?url=';
+  </div><script src="https://cdn.jwplayer.com/libraries/XXXXXXXX.js"></script><script>
+  const IPTV_URL = 'https://onnaonlinetv.xyz/iptv.m3u';
 
   const tvGrid = document.getElementById('tv-channels');
   const radioGrid = document.getElementById('radio-channels');
   const epgSection = document.getElementById('epg-section');
-  const iframe = document.getElementById('player');
+
+  let channels = [];
+  let player = jwplayer('jwplayer');
 
   let channels = [];
 
@@ -202,8 +207,25 @@
   }
 
   function parseM3U(data) {
-    const lines = data.split('\n');
+    const lines = data.split('
+');
     let current = {};
+
+    lines.forEach(line => {
+      if (line.startsWith('#EXTINF')) {
+        current = {
+          name: line.split(',').pop().trim(),
+          logo: (line.match(/tvg-logo="(.*?)"/) || [])[1],
+          group: (line.match(/group-title="(.*?)"/) || [])[1],
+          viewers: Math.floor(Math.random() * 300) + 1
+        };
+      } else if (line.startsWith('http')) {
+        current.url = line.trim();
+        channels.push(current);
+        current = {};
+      }
+    });
+  };
 
     lines.forEach(line => {
       if (line.startsWith('#EXTINF')) {
@@ -222,7 +244,11 @@
   }
 
   function playChannel(url) {
-    iframe.src = JW_BASE + encodeURIComponent(url);
+    player.setup({
+      file: url,
+      width: '100%',
+      aspectratio: '16:9'
+    });
   }
 
   function renderChannels(list) {
@@ -230,10 +256,39 @@
     radioGrid.innerHTML = '';
 
     list.forEach(ch => {
+      // Ẩn hoàn toàn kênh KHÔNG có group-title
+      if (!ch.group) return;
+
       const card = document.createElement('div');
       card.className = 'card';
       card.innerHTML = `
         <img src="${ch.logo || 'https://via.placeholder.com/300x170'}">
+        <div class="views">👁 ${ch.viewers}</div>
+        <div class="info">${ch.name}</div>`;
+
+      card.onclick = () => playChannel(ch.url);
+
+      if (ch.group.toLowerCase().includes('radio')) {
+        radioGrid.appendChild(card);
+      } else if (ch.group.toLowerCase().includes('tv')) {
+        tvGrid.appendChild(card);
+      }
+    });
+  }">
+        <div class="views">👁 ${ch.viewers}</div>
+        <div class="info">${ch.name}</div>`;
+
+      card.onclick = () => playChannel(ch.url);
+
+      if (ch.group && ch.group.toLowerCase().includes('radio')) {
+        radioGrid.appendChild(card);
+      } else if (ch.group && ch.group.toLowerCase().includes('tv')) {
+        tvGrid.appendChild(card);
+      } else {
+        tvGrid.appendChild(card);
+      }
+    });
+  }">
         <div class="views">👁 ${ch.viewers}</div>
         <div class="info">${ch.name}</div>`;
 
@@ -250,13 +305,20 @@
   });
 
   const tabTV = document.getElementById('tab-tv');
-  const tabEPG = document.getElementById('tab-epg');
+  const tabRadio = document.getElementById('tab-radio');
 
   tabTV.onclick = () => {
     tabTV.classList.add('active');
-    tabEPG.classList.remove('active');
+    tabRadio.classList.remove('active');
     document.getElementById('tv-section').style.display = 'block';
-    epgSection.style.display = 'none';
+    document.getElementById('radio-channels').style.display = 'grid';
+  };
+
+  tabRadio.onclick = () => {
+    tabRadio.classList.add('active');
+    tabTV.classList.remove('active');
+    document.getElementById('tv-section').style.display = 'none';
+    document.getElementById('radio-channels').style.display = 'grid';
   };
 
   tabEPG.onclick = () => {
