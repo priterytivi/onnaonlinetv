@@ -1,0 +1,272 @@
+<!DOCTYPE html><html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IPTV Player</title>  <style>
+    :root {
+      --bg: #000;
+      --white: #fff;
+      --gray: #777;
+      --card: #111;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: var(--bg);
+      color: var(--white);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 12px;
+    }
+
+    .control-wrap {
+      width: 100%;
+    }
+      max-width: 1200px;
+      margin: auto;
+      padding: 12px;
+    }
+
+    /* Player iframe */
+    .player-wrap {
+      border-radius: 22px;
+      overflow: hidden;
+      background: #000;
+    }
+
+    .player-wrap iframe {
+      width: 100%;
+      height: 100%;
+      aspect-ratio: 16 / 9;
+      border: 0;
+    }
+
+    /* Search */
+    .search {
+      margin: 12px 0 8px;
+    }
+
+    .search input {
+      width: 100%;
+      padding: 10px;
+      border-radius: 12px;
+      border: none;
+      outline: none;
+    }
+
+    /* Tabs */
+    .tabs {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .tab {
+      flex: 1;
+      padding: 10px;
+      text-align: center;
+      border-radius: 12px;
+      background: var(--gray);
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .tab.active {
+      background: var(--white);
+      color: #000;
+    }
+
+    /* Channel grid */
+    .grid {
+      display: grid;
+      gap: 12px;
+    }
+
+    @media (max-width: 768px) {
+      .grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (min-width: 769px) {
+      .grid { grid-template-columns: repeat(4, 1fr); }
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: 16px;
+      overflow: hidden;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .card img {
+      width: 100%;
+      display: block;
+    }
+
+    .card .info {
+      padding: 8px;
+      font-size: 14px;
+    }
+
+    .views {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      background: rgba(0,0,0,0.6);
+      padding: 4px 6px;
+      border-radius: 8px;
+      font-size: 12px;
+    }
+
+    .epg { display: none; }
+
+    .epg-item {
+      background: #111;
+      border-radius: 12px;
+      padding: 10px;
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      margin: 16px 0 8px;
+      font-weight: bold;
+    }
+  </style></head>
+<body>
+  <script>
+    /* Chống hotlink đơn giản bằng referrer */
+    const allowDomains = ['onnaonlinetv.xyz'];
+    if (document.referrer) {
+      const ref = new URL(document.referrer).hostname;
+      if (!allowDomains.some(d => ref.endsWith(d))) {
+        document.body.innerHTML = '<h2 style="color:white;text-align:center;margin-top:40px">Không được phép truy cập</h2>';
+        throw new Error('Hotlink blocked');
+      }
+    }
+  </script>  <div class="container"><!-- Player -->
+<div class="player-wrap">
+  <iframe id="player" allowfullscreen></iframe>
+</div>
+
+<!-- Search + Tabs wrapper -->
+<div class="control-wrap">
+  <div class="search">
+    <input type="text" id="search" placeholder="Tìm kiếm kênh..." />
+  </div>
+
+  <div class="tabs">
+    <div class="tab active" id="tab-tv">Truyền Hình</div>
+    <div class="tab" id="tab-epg">Lịch Phát Sóng</div>
+  </div>
+</div>
+
+<!-- Tabs -->
+<div class="tabs">
+  <div class="tab active" id="tab-tv">Truyền Hình</div>
+  <div class="tab" id="tab-epg">Lịch Phát Sóng</div>
+</div>
+
+<!-- TV -->
+<div id="tv-section">
+  <div class="section-title">Truyền Hình</div>
+  <div class="grid" id="tv-channels"></div>
+
+  <div class="section-title">Phát Thanh</div>
+  <div class="grid" id="radio-channels"></div>
+</div>
+
+<!-- EPG -->
+<div class="epg" id="epg-section"></div>
+
+  </div><script>
+  const IPTV_URL = '/iptv.m3u';
+  const JW_BASE = '/jw/?url=';
+
+  const tvGrid = document.getElementById('tv-channels');
+  const radioGrid = document.getElementById('radio-channels');
+  const epgSection = document.getElementById('epg-section');
+  const iframe = document.getElementById('player');
+
+  let channels = [];
+
+  async function loadIPTV() {
+    const res = await fetch(IPTV_URL);
+    const text = await res.text();
+    parseM3U(text);
+    renderChannels(channels);
+    if (channels[0]) playChannel(channels[0].url);
+  }
+
+  function parseM3U(data) {
+    const lines = data.split('\n');
+    let current = {};
+
+    lines.forEach(line => {
+      if (line.startsWith('#EXTINF')) {
+        current = {
+          name: line.split(',').pop().trim(),
+          logo: (line.match(/tvg-logo="(.*?)"/) || [])[1],
+          group: (line.match(/group-title="(.*?)"/) || [])[1],
+          viewers: Math.floor(Math.random() * 300) + 1
+        };
+      } else if (line.startsWith('http')) {
+        current.url = line.trim();
+        channels.push(current);
+        current = {};
+      }
+    });
+  }
+
+  function playChannel(url) {
+    iframe.src = JW_BASE + encodeURIComponent(url);
+  }
+
+  function renderChannels(list) {
+    tvGrid.innerHTML = '';
+    radioGrid.innerHTML = '';
+
+    list.forEach(ch => {
+      const card = document.createElement('div');
+      card.className = 'card';
+      card.innerHTML = `
+        <img src="${ch.logo || 'https://via.placeholder.com/300x170'}">
+        <div class="views">👁 ${ch.viewers}</div>
+        <div class="info">${ch.name}</div>`;
+
+      card.onclick = () => playChannel(ch.url);
+
+      if (ch.group && ch.group.toLowerCase().includes('radio')) radioGrid.appendChild(card);
+      else tvGrid.appendChild(card);
+    });
+  }
+
+  document.getElementById('search').addEventListener('input', e => {
+    const key = e.target.value.toLowerCase();
+    renderChannels(channels.filter(c => c.name.toLowerCase().includes(key)));
+  });
+
+  const tabTV = document.getElementById('tab-tv');
+  const tabEPG = document.getElementById('tab-epg');
+
+  tabTV.onclick = () => {
+    tabTV.classList.add('active');
+    tabEPG.classList.remove('active');
+    document.getElementById('tv-section').style.display = 'block';
+    epgSection.style.display = 'none';
+  };
+
+  tabEPG.onclick = () => {
+    tabEPG.classList.add('active');
+    tabTV.classList.remove('active');
+    document.getElementById('tv-section').style.display = 'none';
+    epgSection.style.display = 'block';
+    epgSection.innerHTML = '<div class="epg-item">EPG sẽ hiển thị khi tích hợp XMLTV</div>';
+  };
+
+  loadIPTV();
+</script></body>
+</html>
