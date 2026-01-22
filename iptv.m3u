@@ -154,10 +154,18 @@ https://rumble.com/hls-vod/71meok/playlist.m3u8
 #EXTINF:-1 tvg-id="takopi" group-title="Kho Phim Anime" tvg-logo="https://i.ibb.co/6RKNPZCt/MV5-BYm-Rk-N2-I1-OGEt-OWM3-Yi00-Nj-Vi-LWJj-MDkt-YTNm-ZTMx-Yj-Bi-NTU3-Xk-Ey-Xk-Fqc-Gc-V1-FMjpg-UX1000.jpg", Nguyên Tội Của Takopi - Tập 02 (Lồng Tiếng Việt)
 https://rumble.com/hls-vod/725vdc/playlist.m3u8
 
-#EXTINF:-1 tvg-id="hbo" group-title="Thử Nghiệm" tvg-logo="", Test 1
+#EXTINF:-1 tvg-id="test" group-title="Thử Nghiệm" tvg-logo="", Test 1
 #EXTVLCOPT:http-user-agent=Dalvik/2.1.0
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key={"keys":[{"kty":"oct","k":"PMGt1Drszj/jHJxqKluMIQ","kid":"PCAWZmCpOnWsd9uBVnOJ9w"}],"type":"temporary"}
 https://s2129134.cdn.mytvnet.vn/pkg20/live_dzones/cn.smil/manifest.mpd
+
+#EXTINF:-1 tvg-id="test" group-title="Thử Nghiệm" tvg-logo="", Test 2
+#EXTVLCOPT:http-user-agent=Dalvik/2.1.0
+#KODIPROP:inputstream.adaptive.manifest_type=mpd
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key={"keys":[{"kty":"oct","k":"6YaPX0c9D9hpnt5I1THCsA","kid":"rLTCNHEGMyetxzLig8CEfw"}],"type":"temporary"}
+https://s2129134.cdn.mytvnet.vn/pkg20/live_dzones/max.smil/manifest.mpd
+
 
