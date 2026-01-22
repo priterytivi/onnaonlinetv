@@ -1,0 +1,251 @@
+<!doctype html>
+
+<html lang="vi">
+
+<head>
+
+  <meta charset="utf-8" />
+
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+  <title>Đồng hồ số ONi1</title>
+
+  <!-- Font Montserrat -->
+
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap" rel="stylesheet">
+
+  <style>
+
+    html, body {
+
+      height: 100%;
+
+      margin: 0;
+
+      background: transparent;
+
+      overflow: hidden;
+
+    }
+
+    .clock-wrap {
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      height: 100%;
+
+      gap: 40px; /* khoảng cách giữa đồng hồ số và kim */
+
+    }
+
+    /* Đồng hồ số chính */
+
+    .digital {
+
+      font-family: 'Montserrat', sans-serif;
+
+      color: #ffffff;
+
+      font-size: 180px; /* TO HƠN */
+
+      font-weight: 400;
+
+      line-height: 1;
+
+      letter-spacing: 4px;
+
+      text-shadow: 0 3px 12px rgba(0,0,0,0.6);
+
+      user-select: none;
+
+    }
+
+    /* Vòng kim giây to */
+
+    .sec-analog {
+
+      width: 180px;   /* TO HƠN */
+
+      height: 180px;
+
+      border-radius: 50%;
+
+      position: relative;
+
+      border: 4px solid rgba(255,255,255,0.25);
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      background: rgba(0,0,0,0.05);
+
+      backdrop-filter: blur(2px);
+
+    }
+
+    /* Kim giây */
+
+    .sec-analog .hand {
+
+      width: 3px;
+
+      height: 80px;
+
+      background: #ffffff;
+
+      position: absolute;
+
+      transform-origin: 50% 85%;
+
+      top: 10px;
+
+      border-radius: 2px;
+
+      box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+
+    }
+
+    /* Tâm tròn */
+
+    .sec-analog .center-dot {
+
+      width: 10px;
+
+      height: 10px;
+
+      border-radius: 50%;
+
+      background: #ffffff;
+
+      position: absolute;
+
+      z-index: 3;
+
+    }
+
+    /* Số giây nhỏ bên dưới */
+
+    .sec-analog .sec-text {
+
+      position: absolute;
+
+      bottom: 10px;
+
+      font-size: 20px;
+
+      color: rgba(255,255,255,0.9);
+
+      font-family: 'Montserrat', sans-serif;
+
+      letter-spacing: 1px;
+
+      text-shadow: 0 1px 6px rgba(0,0,0,0.5);
+
+    }
+
+    /* Responsive nhỏ hơn */
+
+    @media (max-width: 600px) {
+
+      .digital { font-size: 100px; }
+
+      .sec-analog { width: 120px; height: 120px; }
+
+      .sec-analog .hand { height: 60px; }
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <div class="clock-wrap">
+
+    <div class="digital" id="time">00:00</div>
+
+    <div class="sec-analog">
+
+      <div class="hand" id="sec-hand"></div>
+
+      <div class="center-dot"></div>
+
+      <div class="sec-text" id="sec-text">00</div>
+
+    </div>
+
+  </div>
+
+  <script>
+
+    const timeZone = 'Asia/Ho_Chi_Minh';
+
+    const elTime = document.getElementById('time');
+
+    const elHand = document.getElementById('sec-hand');
+
+    const elSecText = document.getElementById('sec-text');
+
+    function getTimeParts() {
+
+      const now = new Date();
+
+      const fmt = new Intl.DateTimeFormat('en-US', {
+
+        hour: '2-digit', minute: '2-digit', second: '2-digit',
+
+        hour12: false, timeZone
+
+      });
+
+      const parts = fmt.formatToParts(now);
+
+      let h='00', m='00', s='00';
+
+      for (const p of parts) {
+
+        if (p.type === 'hour') h = p.value;
+
+        if (p.type === 'minute') m = p.value;
+
+        if (p.type === 'second') s = p.value;
+
+      }
+
+      return {h, m, s, ms: now.getMilliseconds()};
+
+    }
+
+    function updateClock() {
+
+      const {h, m, s, ms} = getTimeParts();
+
+      elTime.textContent = `${h}:${m}`;
+
+      elSecText.textContent = s.padStart(2,'0');
+
+      // Kim quay 360/60 = 6 độ mỗi giây, mượt hơn bằng ms
+
+      const angle = (parseInt(s) + ms/1000) * 6;
+
+      elHand.style.transform = `rotate(${angle}deg)`;
+
+      requestAnimationFrame(updateClock);
+
+    }
+
+    updateClock();
+
+  </script>
+
+</body>
+
+</html>
