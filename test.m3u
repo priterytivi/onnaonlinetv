@@ -1,0 +1,16 @@
+#EXTM3U url-tvg="https://vnepg.site/epg.xml"
+
+#List IPTV nội bộ test chức năng xem lại, vui lòng không leak ra ngoài 
+#Địt mẹ bọn spam sao đơn
+
+#EXTINF:-1 tvg-id="quangngai2" tvg-name="Test" tvg-logo="https://example.com/logo/vtv1.png" group-title="Test",
+QNgTV2
+#KODIPROP:inputstream.adaptive.manifest_type=hls
+#EXT-X-CATCHUP:default
+https://live.onnamx.io.vn/hls/qngtv2/index.m3u8
+
+#EXTINF:-1 tvg-id="ninhbinh" tvg-name="Test" tvg-logo="https://example.com/logo/vtv1.png" group-title="Test",
+NBTV Ninh Bình
+#KODIPROP:inputstream.adaptive.manifest_type=hls
+#EXT-X-CATCHUP:default
+https://live.onnamx.io.vn/hls/ninhbinhtv/index.m3u8
